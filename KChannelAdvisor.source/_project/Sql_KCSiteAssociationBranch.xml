@@ -1,0 +1,22 @@
+<Sql TableName="KCSiteAssociationBranch" TableSchemaXml="#CDATA">
+	<CDATA name="TableSchemaXml"><![CDATA[<table name="KCSiteAssociationBranch">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="BranchId" type="Int" />
+  <col name="PreferenceId" type="Int" />
+  <col name="SiteMasterId" type="NVarChar(30)" />
+  <col name="Integrated" type="Bit" nullable="true" />
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
+  <col name="tstamp" type="Timestamp" />
+  <col name="NoteID" type="UniqueIdentifier" nullable="true" />
+  <index name="PK_KCSiteAssociationBranch" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="BranchId" />
+    <col name="PreferenceId" />
+  </index>
+</table>]]></CDATA>
+</Sql>

@@ -1,0 +1,511 @@
+<WikiArticle>
+	<data-set>
+		<relations format-version="3" relations-version="20160101" main-table="WikiPage">
+			<link from="WikiAccessRights (PageID)" to="WikiPage (PageID)" />
+			<link from="WikiPageLanguage (PageID)" to="WikiPage (PageID)" />
+			<link from="WikiRevision (PageID, Language, PageRevisionID)" to="WikiPageLanguage (PageID, Language, LastRevisionID)" />
+			<link from="WikiRevision (UID)" to="Dual (UID)" type="NewUID" />
+			<link from="WikiPage (PageID)" to="WikiDescriptor (PageID)" type="ToMaster" updateable="False" />
+			<link from="WikiDescriptor (PageID)" to="WikiDescriptorExt (PageID)" type="ToMaster" updateable="False" />
+			<link from="WikiCss (CssID)" to="WikiDescriptor (CssID)" />
+			<link from="WikiFileInPage (PageID, Language, PageRevisionID)" to="WikiRevision (PageID, Language, PageRevisionID)" />
+			<link from="WikiFileInPage (FileID)" to="UploadFile (FileID)" type="ToMaster" updateable="False" />
+			<link from="UploadFileRevision (FileID, FileRevisionID)" to="UploadFile (FileID, LastRevisionID)" />
+			<link from="WikiPage (PageID)" to="WikiPage (WikiID)" type="ToMaster" updateable="False" />
+			<link from="WikiArticle (PageID)" to="WikiPage (PageID)" />
+			<link from="SiteMap (NodeID)" to="WikiPage (PageID)" />
+		</relations>
+		<layout>
+			<table name="WikiPage" recursion="(PageID) = (WikiID)">
+				<table name="WikiAccessRights" uplink="(PageID) = (PageID)" />
+				<table name="WikiPageLanguage" uplink="(PageID) = (PageID)">
+					<table name="WikiRevision" uplink="(PageID, Language, LastRevisionID) = (PageID, Language, PageRevisionID)">
+						<table name="WikiFileInPage" uplink="(PageID, Language, PageRevisionID) = (PageID, Language, PageRevisionID)" />
+						<table name="Dual" uplink="(UID) = (UID)" />
+					</table>
+				</table>
+				<table name="WikiArticle" uplink="(PageID) = (PageID)" />
+				<table name="SiteMap" uplink="(PageID) = (NodeID)" />
+			</table>
+			<table name="WikiDescriptor">
+				<table name="WikiCss" uplink="(CssID) = (CssID)" />
+			</table>
+			<table name="WikiDescriptorExt" />
+			<table name="UploadFile">
+				<table name="UploadFileRevision" uplink="(FileID, LastRevisionID) = (FileID, FileRevisionID)" />
+			</table>
+		</layout>
+		<data>
+			<WikiPage>
+				<row PageID="63716070-9996-4013-a31c-b848bc99f511" WikiID="00000000-0000-0000-0000-000000000000" ArticleType="0" ParentUID="00000000-0000-0000-0000-000000000000" Number="0" Name="CAwilki" Folder="1" Versioned="0" StatusID="0" ApprovalGroupID="110" ApprovalUserID="d80d15cc-d5cd-4183-a4ba-92743ffa9223" IsHtml="0">
+					<WikiAccessRights RoleName="Wiki Author" ApplicationName="/" AccessRights="2" />
+					<WikiAccessRights RoleName="Wiki Admin" ApplicationName="/" AccessRights="5" />
+					<WikiAccessRights RoleName="SUPPORT" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="SHIPPING" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="SERVICETECH" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="SERVICEMGR" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="SALESMGR" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="SALES" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="ReportDesigner" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="READONLY" ApplicationName="/" AccessRights="1" />
+					<WikiAccessRights RoleName="PURCHASING" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="Portal User" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="Portal Admin" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="Internal User" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="Guest" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="Financial Supervisor" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="FINANCE" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="Field-Level Audit" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="EMPLOYEE" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="DEMO" ApplicationName="/" AccessRights="1" />
+					<WikiAccessRights RoleName="Data Privacy Controller" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="DashboardDesigner" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="Customizer" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="CONSULTANT" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="BusinessDateOverride" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="BRANCH VA" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="BRANCH HQ" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="BRANCH CAP" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="BI" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="Anonymous" ApplicationName="/" AccessRights="0" />
+					<WikiAccessRights RoleName="Administrator" ApplicationName="/" AccessRights="5" />
+					<WikiPageLanguage Language="en-US" Title="Channel Advisor" LastRevisionID="1" LastPublishedID="1" LastPublishedDateTime="2020-03-04 21:34:32.547" />
+					<SiteMap Position="0" Title="Channel Advisor" Url="~/Search/Wiki.aspx?WikiID=63716070-9996-4013-a31c-b848bc99f511" Expanded="0" IsFolder="0" ScreenID="WI000085" ParentID="4e668b66-ff32-4bbc-87f6-e0a09c199d4b" />
+				</row>
+				<row PageID="6048b0a2-730f-4b04-8a73-3dfea18d6126" WikiID="63716070-9996-4013-a31c-b848bc99f511" ArticleType="1" ParentUID="63716070-9996-4013-a31c-b848bc99f511" Number="0" Name="Deleted" Folder="1" Versioned="0" StatusID="4" IsHtml="0" NoteID="6e6e781d-0c5e-ea11-8d77-94de80b75e16">
+					<WikiPageLanguage Language="en-US" Title="Deleted Items" LastRevisionID="1" LastPublishedID="1" LastPublishedDateTime="2020-03-04 21:34:32.537" />
+					<WikiArticle />
+				</row>
+			</WikiPage>
+			<WikiDescriptor>
+				<row PageID="63716070-9996-4013-a31c-b848bc99f511" UrlEdit="~/Wiki/ArticleEdit.aspx" WikiArticleType="10" SPWikiArticleType="10" DeletedID="6048b0a2-730f-4b04-8a73-3dfea18d6126" HoldEntry="0" RequestApproval="1" CssID="88462a53-9c07-45ec-8498-2c12b657d24e" CssPrintID="edd0bdea-ce61-43af-8a6b-0b621dfb4dd1" IsActive="1" Category="ADMIN">
+					<WikiCss Name="Help" Description="General Help Style">
+						<column name="Style"><![CDATA[.wiki { 
+       color:black;
+       background-color: white;
+       font-family: Verdana, sans-serif;
+       font-size-adjust:none;
+       font-style:normal;
+       font-variant:normal;
+       font-weight:normal;
+       line-height:1.5em;
+       padding-left: 2em;
+       padding-right: 1em;
+       padding-top: 1em;
+       padding-bottom: 1em;
+       font-size:9pt;
+ }
+
+div
+{
+       outline: none;
+       outline: expression(hideFocus='true');
+}
+
+p 
+{
+       margin:0.4em 0 0.5em;
+       font-size:9pt;
+}
+
+table
+{
+       font-size:9pt;
+}
+
+
+/*Links  */
+
+a {
+       background:transparent none repeat scroll 0 0;
+       color:#002BB8;
+       text-decoration:none;
+}
+
+a:hover {
+       text-decoration:underline;
+}
+a.unknownlink {
+       color:#CC2200;
+}
+
+a.unknownlink:hover {
+ color: #D9671E;
+ text-decoration: underline;
+}
+a.externallink {
+ background-image: url('Default/Images/Wiki/ExternalLink.gif');
+ background-position: right;
+ background-repeat: no-repeat;
+ padding-right: 14px;
+}
+
+/*Lists*/
+ol, ul {
+       list-style-image:none;
+       margin:0.3em 0 0 3em;
+       padding:0;
+}
+
+li {
+       margin-bottom:0.6em;
+}
+
+ol.wikinumlist dl.wikidefn dd.wikidefn 
+{
+  margin:0 0 0 0;
+}
+
+ul.wikibulletlist dl.wikidefn dd.wikidefn 
+{
+  margin:0 0 0 0;
+}
+
+
+ol.wikinumlist li.wikibullet dl.wikidefn dd.wikidefn dl.wikidefn dd.wikidefn 
+{
+ margin:0.3em 0 0 3em;
+        padding-top:10px;
+}
+
+ul.wikibulletlist  li.wikibullet dl.wikidefn dd.wikidefn dl.wikidefn dd.wikidefn 
+{
+ margin:0.3em 0 0 3em;
+}
+
+
+/*Headers*/
+
+.editsectionlink {
+       float:right;
+       margin-top:0.6em;
+       margin-left:0.6em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+       background:transparent none repeat scroll 0 0;
+       border-bottom:1px solid #AAAAAA;
+       color:black;
+       font-weight:normal;
+       margin:0;
+       padding-bottom:0.17em;
+       padding-top:1.2em;
+}
+
+h1.pagetitle {
+       font-size:188%;
+       line-height:1.1em;
+       margin-bottom:0.1em;
+       padding-bottom:0;
+       padding-top:0;
+}
+
+.legend {
+        font-size:90%;
+        margin-bottom:1.0em;
+}
+
+h1.wikiH1 {
+       font-size:150%;
+       margin-bottom:0.6em;
+}
+
+div.sH1
+{
+       margin-left: 2em;
+}
+
+h2.wikiH2 {
+       font-size:125%;
+       font-weight:bold;
+       margin-bottom:0.3em;
+}
+
+div.sH2
+{
+       margin-left: 2em; 
+}
+
+h3.wikiH3 {
+       font-size:100%;
+       font-weight:bold;
+       padding-bottom:0em;
+       border-bottom:medium none;
+}
+
+div.sH3
+{
+       margin-left: 0;     
+}
+
+h4.wikiH4 {
+       font-size:95%;
+       font-weight:bold;
+       margin-bottom:0em;
+       border-bottom:medium none;
+}
+
+div.sH4
+{
+       margin-left: 0; 
+}
+
+/*Images */
+img {
+ border: none;
+}
+
+img.image {
+ border: solid 1px #CCCCCC;
+}
+img.format {
+ border: solid 1px;
+ padding: 2px;
+}
+
+img.fileimg
+{
+ height: 16px;
+ vertical-align: middle;
+ margin-right: 5px;
+}
+
+div.imagedescription {
+ font-size: 8pt;
+ font-style: italic;
+ margin-top: 0.3em;
+}
+
+div.clear {
+ clear: both;
+}
+
+div.imageleft {
+ margin-left: 0px;
+ margin-right: 8px;
+ margin-top: 4px;
+ margin-bottom: 4px;
+ float: left;
+ clear: left;
+}
+
+div.imageright {
+ margin-left: 8px;
+ margin-right: 0px;
+ margin-top: 4px;
+ margin-bottom: 4px;
+ float: right;
+ clear: right;
+}
+
+div.imagecenter 
+{
+ width: 98%;
+ text-align: center;
+}
+
+table.imageauto {
+ border: solid 1px #CCCCCC;
+ background-color: #F9F9F9;
+ margin: 0.8em 0em 0.8em 0em;
+ padding: 4px;
+ clear: both;
+}
+
+td.imageauto {
+ background-color: #F9F9F9;
+}
+
+/*Toc */
+.TocBox {
+       background-color:#F9F9F9;
+       border:1px solid #AAAAAA;
+       font-size:95%;
+       padding:5px;
+       width:100%
+}
+
+/* Code, Pre */
+
+code {
+ font-family: Courier New, Lucida Console, Monospace;
+        background-color: #F0F0FF; 
+        padding-left:0.3em;
+        padding-right:0.3em;
+}
+
+pre {
+ font-family: Courier New, Lucida Console, Monospace;
+        line-height:1.2em;  
+ padding: 0.4em;
+ margin: 0.8em 0em 0.8em 0em;
+ border: dashed 1px #CCCCCC;
+        background-color: #F0F0FF; 
+}
+
+.source-highlighted {background-color: #F0F0FF;}
+.source-highlighted .nu { color: brown; }
+.source-highlighted .kw { color: blue; }
+.source-highlighted .cmt { color: green; }
+.source-highlighted .sl { color: brown; }
+.source-highlighted .br { color: darkgreen; }
+.source-highlighted .add { background: palegreen; }
+.source-highlighted .del { background: pink; }
+
+
+/*Tables*/
+.GrayBox {
+ border: solid 1px #CCCCCC;
+ background-color:  #F9F9F9;
+ margin: 0.8em 0em 0.8em 0em;
+        padding: 0.4em 0.4em 0.4em 0em;
+}
+
+.GrayBoxContent
+{
+}
+
+table.GrayBoxContent td.hintcell{
+ vertical-align: top;
+        width:24px;
+        padding: 0.6em 0.6em 0.6em 0.6em;
+       background-color: #F9F9F9;
+}
+
+table.GrayBoxContent td.warncell {
+ vertical-align: top;
+        padding: 0.6em 0.6em 0.6em 0.6em;
+       background-color: #F9F9F9;
+}
+
+table.GrayBoxContent td.boxcontent
+{    
+       background-color: #F9F9F9;
+}
+
+table.checklist
+{
+       background-color:#AAAAAA;  
+       border-spacing: 1px;
+       empty-cells:show;
+       margin:1em 0 1em 0;
+}
+
+table.checklist th
+{
+       padding:0.2em 0.4em;
+       background-color: #EEEEEE;
+       border: 0px solid #FFFFFF;
+       color: #000000;
+       font-weight: bold;
+}
+table.checklist td
+{
+       padding: 0.6em 0.6em 0.6em 0.8em;
+       background-color: #FFFFFF;
+       color: #000000;
+       vertical-align: top;
+}
+
+table.GrayBox td
+{
+ background-color:  #F9F9F9;
+}
+
+table#listtable
+{
+        background-color:#FFFFFF;
+}
+
+table.listtable th
+{
+       font-size: 14px;
+       padding: 2px 2px 2px 6px;
+       background-color: #9A9A9A;
+       border: 0px solid #FFFFFF;
+       color: #FFFFFF;
+       font-weight: bold;
+}
+
+table.listtable td
+{
+       padding: 0.6em 0.6em 0.6em 0.6em;
+}
+
+table.listtable tr.oddline
+{
+       background-color: #F0F0F0;
+}
+
+table.listtable td.boldcol
+{
+       font-weight: bold;
+       vertical-align: top;
+}
+
+/* Rounded tables displayed in articles */
+
+.hinttabletop {
+  background:  url(Default/Images/Wiki/hinttable.gif) no-repeat scroll 0 -6px;
+  font-size:0;
+  height:6px;
+  margin:0 auto;
+  width:180px;
+}
+
+.hinttablebottom {
+  background:  url(Default/Images/Wiki/hinttable.gif) no-repeat scroll 0 0px;
+  font-size:0;
+  height:6px;
+  margin:0 auto;
+  width:180px;
+}
+
+.contenttablehead
+{
+  background-color: #9A9A9A;
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+       
+.contenttableheadtd
+{
+  padding: 8px 5px 8px 5px;
+}
+       
+.contenttabletd
+{
+  margin: 0px;
+  padding: 2px 2px 2px 6px;
+  vertical-align: top;
+  vertical-align: top;
+}
+       
+.contenttabletdfirst
+{
+  font-weight: bold;
+  vertical-align: top;
+  padding: 2px 2px 2px 6px;
+}
+
+.contenttabletrfirst
+{
+  background-color: #F0F0F0;
+}
+
+.contenttableproduct
+{
+  padding: 0px;
+  margin: 0px;
+  vertical-align: top;
+}]]></column>
+					</WikiCss>
+				</row>
+			</WikiDescriptor>
+			<WikiDescriptorExt>
+				<row PageID="63716070-9996-4013-a31c-b848bc99f511" />
+			</WikiDescriptorExt>
+		</data>
+	</data-set>
+</WikiArticle>

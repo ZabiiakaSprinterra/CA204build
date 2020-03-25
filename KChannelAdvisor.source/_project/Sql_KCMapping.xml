@@ -1,0 +1,27 @@
+<Sql TableName="KCMapping" TableSchemaXml="#CDATA">
+	<CDATA name="TableSchemaXml"><![CDATA[<table name="KCMapping">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="Id" type="Int" identity="true" />
+  <col name="LineNbr" type="Int" />
+  <col name="EntityType" type="NVarChar(25)" />
+  <col name="MappingRule" type="NVarChar(25)" />
+  <col name="AViewName" type="NVarChar(50)" />
+  <col name="AFieldHash" type="NVarChar(50)" nullable="true" />
+  <col name="CFieldHash" type="NVarChar(50)" nullable="true" />
+  <col name="Direction" type="NVarChar(1)" nullable="true" />
+  <col name="RuleType" type="NVarChar(1)" nullable="true" />
+  <col name="SourceExpression" type="NVarChar(200)" nullable="true" />
+  <col name="NoteID" type="UniqueIdentifier" nullable="true" />
+  <col name="CreatedByID" type="UniqueIdentifier" nullable="true" />
+  <col name="CreatedByScreenID" type="Char(8)" nullable="true" />
+  <col name="CreatedDateTime" type="DateTime" nullable="true" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" nullable="true" />
+  <col name="LastModifiedByScreenID" type="Char(8)" nullable="true" />
+  <col name="tstamp" type="Timestamp" />
+  <col name="LastModifiedDateTime" type="DateTime" nullable="true" />
+  <index name="KCMapping_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="Id" />
+  </index>
+</table>]]></CDATA>
+</Sql>

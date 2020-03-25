@@ -1,0 +1,10 @@
+<Table TableName="KCChannelAdvisorMappingField">
+	<Column TableName="KCChannelAdvisorMappingField" ColumnName="NoteID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCChannelAdvisorMappingField" ColumnName="CreatedByID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCChannelAdvisorMappingField" ColumnName="CreatedByScreenID" ColumnType="string" AllowNull="True" MaxLength="8" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCChannelAdvisorMappingField" ColumnName="CreatedDateTime" ColumnType="date" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCChannelAdvisorMappingField" ColumnName="LastModifiedByID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCChannelAdvisorMappingField" ColumnName="LastModifiedByScreenID" ColumnType="string" AllowNull="True" MaxLength="8" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCChannelAdvisorMappingField" ColumnName="LastModifiedDateTime" ColumnType="date" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCChannelAdvisorMappingField" ColumnName="Tstamp" ColumnType="Timestamp" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+</Table>

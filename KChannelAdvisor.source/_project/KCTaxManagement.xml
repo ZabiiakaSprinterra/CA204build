@@ -1,0 +1,11 @@
+<Table TableName="KCTaxManagement">
+	<Column TableName="KCTaxManagement" ColumnName="UseDefTaxZone" ColumnType="bool" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCTaxManagement" ColumnName="NoteID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCTaxManagement" ColumnName="CreatedByID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCTaxManagement" ColumnName="CreatedByScreenID" ColumnType="string" AllowNull="True" MaxLength="8" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCTaxManagement" ColumnName="CreatedDateTime" ColumnType="date" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCTaxManagement" ColumnName="LastModifiedByID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCTaxManagement" ColumnName="LastModifiedByScreenID" ColumnType="string" AllowNull="True" MaxLength="8" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCTaxManagement" ColumnName="LastModifiedDateTime" ColumnType="date" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCTaxManagement" ColumnName="Tstamp" ColumnType="Timestamp" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+</Table>

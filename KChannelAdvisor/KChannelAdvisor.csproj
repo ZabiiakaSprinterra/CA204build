@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9BC6D61A-5D4B-4D57-BC6B-5E3F9D04377E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KChannelAdvisor</RootNamespace>
+    <AssemblyName>KChannelAdvisor</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AWSSDK, Version=2.3.33.0, Culture=neutral, PublicKeyToken=9f476d3089b52be3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AcumaticaSites\KChannelAdvisor\Site\Bin\AWSSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Core">
+      <HintPath>..\..\..\AcumaticaSites\KChannelAdvisor\Site\Bin\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SimpleNotificationService">
+      <HintPath>..\..\..\AcumaticaSites\KChannelAdvisor\Site\Bin\AWSSDK.SimpleNotificationService.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.16.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files\Acumatica ERP\Files\Bin\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AcumaticaSites\KChannelAdvisor\Site\Bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ProductConfigurator, Version=1.0.554.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AcumaticaSites\KChannelAdvisor\Site\Bin\ProductConfigurator.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AcumaticaSites\KChannelAdvisor\Site\Bin\PX.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.CS.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AcumaticaSites\KChannelAdvisor\Site\Bin\PX.CS.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AcumaticaSites\KChannelAdvisor\Site\Bin\PX.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.DbServices, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AcumaticaSites\KChannelAdvisor\Site\Bin\PX.DbServices.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Objects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AcumaticaSites\KChannelAdvisor\Site\Bin\PX.Objects.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Objects.FS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AcumaticaSites\KChannelAdvisor\Site\Bin\PX.Objects.FS.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.PushNotifications, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AcumaticaSites\KChannelAdvisor\Site\Bin\PX.PushNotifications.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Web.Customization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AcumaticaSites\KChannelAdvisor\Site\Bin\PX.Web.Customization.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Web.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AcumaticaSites\KChannelAdvisor\Site\Bin\PX.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=100.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AcumaticaSites\KChannelAdvisor\Site\Bin\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AcumaticaSites\KChannelAdvisor\Site\Bin\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLC\Ext\ARSalesPriceMaintExt.cs" />
+    <Compile Include="BLC\Ext\KCTaxZoneMaintExt.cs" />
+    <Compile Include="Descriptor\API\APIHelper\KCShipmentAPIHelper.cs" />
+    <Compile Include="Descriptor\API\Base\KCRequestBase.cs" />
+    <Compile Include="Descriptor\API\Constants\KCCheckoutStatus.cs" />
+    <Compile Include="Descriptor\API\Constants\KCPaymentStatus.cs" />
+    <Compile Include="Descriptor\API\Constants\KCShippingStatus.cs" />
+    <Compile Include="Descriptor\API\Entity\KCAPIIdSkuJuxtaposion.cs" />
+    <Compile Include="Descriptor\API\Entity\KCErrorResponse.cs" />
+    <Compile Include="Descriptor\API\LoggerProvider\KCILoggerProvider.cs" />
+    <Compile Include="Descriptor\API\LoggerProvider\KCLoggerProvider.cs" />
+    <Compile Include="Descriptor\API\Mapper\KCFieldRelation.cs" />
+    <Compile Include="Descriptor\API\Validator\KCOrderItemsValidator.cs" />
+    <Compile Include="BLC\Ext\KCCustomerMaintExt.cs" />
+    <Compile Include="BLC\Ext\KCJournalEntryExt.cs" />
+    <Compile Include="BLC\KCCrossReferenceMappingMaint.cs" />
+    <Compile Include="BLC\Ext\KCSOCreateShipmentExt.cs" />
+    <Compile Include="Descriptor\BulkUploader\Strategy\KCBasicBulkStrategy.cs" />
+    <Compile Include="Descriptor\BulkUploader\Strategy\Interfaces\IKCBulkServiceLocator.cs" />
+    <Compile Include="Descriptor\BulkUploader\Strategy\Interfaces\IKCBulkStrategy.cs" />
+    <Compile Include="Descriptor\BulkUploader\KCBulkFileBuilder.cs" />
+    <Compile Include="Descriptor\BulkUploader\KCBulkProduct.cs" />
+    <Compile Include="Descriptor\BulkUploader\KCBulkUploader.cs" />
+    <Compile Include="Descriptor\BulkUploader\KCHeaders.cs" />
+    <Compile Include="Descriptor\BulkUploader\KCSubmitStatus.cs" />
+    <Compile Include="Descriptor\API\Constants\KCOrderConstants.cs" />
+    <Compile Include="Descriptor\API\Constants\KCSinglet.cs" />
+    <Compile Include="Descriptor\API\DataHelper\KCGeneralDataHelper.cs" />
+    <Compile Include="Descriptor\API\DataHelper\KCInventoryItemDataHelper.cs" />
+    <Compile Include="Descriptor\API\DataHelper\KCOrderDataHelper.cs" />
+    <Compile Include="Descriptor\API\DataHelper\KCShipmentDataHelper.cs" />
+    <Compile Include="Descriptor\API\Entity\KCAPIAttribute.cs" />
+    <Compile Include="Descriptor\API\Entity\KCAPIBundleComponent.cs" />
+    <Compile Include="Descriptor\API\Entity\KCAPIDistributionCenter.cs" />
+    <Compile Include="Descriptor\API\Entity\KCAPIFulfillment.cs" />
+    <Compile Include="Descriptor\API\Entity\KCAPIInventoryItemIDs.cs" />
+    <Compile Include="Descriptor\API\Entity\KCAPIOrderItem.cs" />
+    <Compile Include="Descriptor\API\Entity\KCAPIProductLabel.cs" />
+    <Compile Include="Descriptor\API\Entity\KCAPIProfile.cs" />
+    <Compile Include="Descriptor\API\Entity\KCAPIQuantity.cs" />
+    <Compile Include="Descriptor\API\Entity\KCAPIResponse.cs" />
+    <Compile Include="Descriptor\API\Entity\KCAPIShipment.cs" />
+    <Compile Include="Descriptor\API\Entity\KCICAEntity.cs" />
+    <Compile Include="Descriptor\API\Entity\KCODataWrapper.cs" />
+    <Compile Include="Descriptor\API\KCJsonSerializer.cs" />
+    <Compile Include="Descriptor\API\Mapper\Expressions\KCAddExpression.cs" />
+    <Compile Include="Descriptor\API\Mapper\Expressions\KCConstantExpression.cs" />
+    <Compile Include="Descriptor\API\Mapper\Expressions\KCExprEngine.cs" />
+    <Compile Include="Descriptor\API\Mapper\Expressions\ExprHandlers\KCAbstractExprHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\Expressions\ExprHandlers\KCConstantExprHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\Expressions\ExprHandlers\KCIExprHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\Expressions\ExprHandlers\KCSubtractExpHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\Expressions\Handlers\KCAbstractHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\Expressions\Handlers\KCAddedExpressionsDTO.cs" />
+    <Compile Include="Descriptor\API\Mapper\Expressions\ExprHandlers\KCAddExprHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\Expressions\Handlers\KCAFieldHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\Expressions\Handlers\KCCAFieldHandler.cs" />
+    <Compile Include="Descriptor\BulkUploader\ValidationChain\KCAbstractRule.cs" />
+    <Compile Include="Descriptor\BulkUploader\ValidationChain\Interfaces\IKCUploadRule.cs" />
+    <Compile Include="Descriptor\BulkUploader\ValidationChain\KCActiveRule.cs" />
+    <Compile Include="Descriptor\BulkUploader\ValidationChain\KCBundleProductRule.cs" />
+    <Compile Include="Descriptor\BulkUploader\ValidationChain\KCClassificationRule.cs" />
+    <Compile Include="Descriptor\BulkUploader\ValidationChain\KCNumberPerBundleRule.cs" />
+    <Compile Include="Descriptor\BulkUploader\ValidationChain\KCRelationshipRule.cs" />
+    <Compile Include="Descriptor\API\Mapper\KCIHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\KCDynamicProductMapper.cs" />
+    <Compile Include="Descriptor\API\Mapper\MapCastHandlers\KCBasicHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\MapCastHandlers\KCDateTimeOffsetToDateTimeHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\MapCastHandlers\KCDecimalToIntHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\MapCastHandlers\KCFromDateTimeHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\MapCastHandlers\KCMapCastDTO.cs" />
+    <Compile Include="Descriptor\API\Mapper\MapCastHandlers\KCMapCastHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\Expressions\Handlers\KCSubtractHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\Expressions\Handlers\KCSumHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\Expressions\KCIExpression.cs" />
+    <Compile Include="Descriptor\API\Mapper\MapCastHandlers\KCToBoolHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\MapCastHandlers\KCToStringHandler.cs" />
+    <Compile Include="Descriptor\API\Mapper\KCMappingContext.cs" />
+    <Compile Include="Descriptor\API\Mapper\Expressions\KCSubtractExpression.cs" />
+    <Compile Include="Descriptor\API\Mapper\KCCDHelper.cs" />
+    <Compile Include="Descriptor\API\Mapper\KCDynamicOrderMapper.cs" />
+    <Compile Include="Descriptor\API\Mapper\KCMappingKey.cs" />
+    <Compile Include="Descriptor\API\Mapper\KCObjectMapper.cs" />
+    <Compile Include="Descriptor\API\Mapper\KCResultSetHelper.cs" />
+    <Compile Include="Descriptor\API\Mapper\KCMapInventoryItem.cs" />
+    <Compile Include="Descriptor\API\Mapper\KCMapOrder.cs" />
+    <Compile Include="Descriptor\API\Mapper\KCMapShipment.cs" />
+    <Compile Include="Descriptor\API\Mapper\Requests\KCMapObjectRequest.cs" />
+    <Compile Include="Descriptor\API\Request\KCOrderRequest.cs" />
+    <Compile Include="Descriptor\API\Request\KCProductRequest.cs" />
+    <Compile Include="Descriptor\API\Entity\KCAPIOrder.cs" />
+    <Compile Include="Descriptor\API\Request\KCShipmentRequest.cs" />
+    <Compile Include="Descriptor\API\APIHelper\KCOrderAPIHelper.cs" />
+    <Compile Include="BLC\KCAttributesMappingMaint.cs" />
+    <Compile Include="BLC\KCBulkProductMaint.cs" />
+    <Compile Include="BLC\KCClassificationsMappingMaint.cs" />
+    <Compile Include="BLC\Ext\KCINItemClassMaintExt.cs" />
+    <Compile Include="BLC\KCInitializationMaint.cs" />
+    <Compile Include="BLC\KCDataExchangeMaint .cs" />
+    <Compile Include="Descriptor\API\Entity\KCAPIAccessToken.cs" />
+    <Compile Include="Descriptor\API\Entity\KCAPIError.cs" />
+    <Compile Include="Descriptor\API\Entity\KCAPIInventoryItem.cs" />
+    <Compile Include="Descriptor\API\APIHelper\KCInventoryItemAPIHelper.cs" />
+    <Compile Include="Descriptor\API\KCARestClient.cs" />
+    <Compile Include="Descriptor\API\KCRestAPIClient.cs" />
+    <Compile Include="BLC\KCIItemConversionDataMaint.cs" />
+    <Compile Include="BLC\KCImagePlacementMaint.cs" />
+    <Compile Include="BLC\KCPaymentMethodsMappingMaint.cs" />
+    <Compile Include="BLC\KCInventoryManagementMaint.cs" />
+    <Compile Include="BLC\KCMappingMaint.cs" />
+    <Compile Include="BLC\KCOrderConversionDataMaint.cs" />
+    <Compile Include="BLC\KCPriceAndInventoryMaint.cs" />
+    <Compile Include="BLC\KCRelationshipSetupMaint.cs" />
+    <Compile Include="BLC\KCRequestLogInq.cs" />
+    <Compile Include="BLC\Ext\KCSOInvoiceEntryExt.cs" />
+    <Compile Include="BLC\Ext\KCSOOrderEntryExt.cs" />
+    <Compile Include="Descriptor\BulkUploader\Strategy\KCCustomSync.cs" />
+    <Compile Include="Descriptor\BulkUploader\Strategy\KCDeltaSync.cs" />
+    <Compile Include="Descriptor\BulkUploader\Strategy\KCFullSync.cs" />
+    <Compile Include="Descriptor\BulkUploader\ValidationChain\KCValidChildrenRule.cs" />
+    <Compile Include="Descriptor\BulkUploader\ValidationChain\KCValidParentRule.cs" />
+    <Compile Include="Connected Services\ShippingService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Descriptor\CustomAttributes\Constants\KCBulkProductSyncTypesConstants.cs" />
+    <Compile Include="BLC\KCSOShipmentEntryExt.cs" />
+    <Compile Include="Descriptor\CustomAttributes\Constants\KCDirectionsConstants.cs" />
+    <Compile Include="Descriptor\CustomAttributes\Constants\KCInventoryTrackingRulesConstants.cs" />
+    <Compile Include="Descriptor\CustomAttributes\Constants\KCMappingEntitiesConstants.cs" />
+    <Compile Include="Descriptor\CustomAttributes\Constants\KCMappingRulesConstants.cs" />
+    <Compile Include="Descriptor\CustomAttributes\Constants\KCRuleTypesConstants.cs" />
+    <Compile Include="Descriptor\CustomAttributes\KCAttributeListAttribute.cs" />
+    <Compile Include="Connected Services\InventoryService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Descriptor\CustomAttributes\KCCRAttributeSelectorAttribute.cs" />
+    <Compile Include="Descriptor\CustomAttributes\KCAViewSelectorAttribute.cs" />
+    <Compile Include="Descriptor\CustomAttributes\KCBulkProductSyncTypesAttribute.cs" />
+    <Compile Include="Descriptor\CustomAttributes\KCDirectionsAttribute.cs" />
+    <Compile Include="Descriptor\CustomAttributes\KCMappingEntitiesAttribute.cs" />
+    <Compile Include="Descriptor\CustomAttributes\KCMappingRulesAttribute.cs" />
+    <Compile Include="Descriptor\CustomAttributes\KCProductAttributeSelectorAttribute.cs" />
+    <Compile Include="Descriptor\CustomAttributes\KCRuleTypesAttribute.cs" />
+    <Compile Include="Descriptor\CustomAttributes\KCSOInvoiсeTaxCstAttribute.cs" />
+    <Compile Include="Descriptor\CustomAttributes\KCMarketplaceAttribute.cs" />
+    <Compile Include="Descriptor\CustomAttributes\KCTaxManagementState.cs" />
+    <Compile Include="Descriptor\CustomAttributes\KCSearchTypesListAttribute.cs" />
+    <Compile Include="Descriptor\Customization\KCPredefinedValues.cs" />
+    <Compile Include="Descriptor\CustomAttributes\KCInventoryTrackingRulesAttribute.cs" />
+    <Compile Include="Descriptor\CustomAttributes\KCSiteMultiSelectListAttribute.cs" />
+    <Compile Include="DAC\KCCustomerExt.cs" />
+    <Compile Include="DAC\Helper\IMappingField.cs" />
+    <Compile Include="DAC\Helper\KCMarketplaceData.cs" />
+    <Compile Include="DAC\Helper\KCPaymentMethods.cs" />
+    <Compile Include="DAC\KCINItemXRefExt.cs" />
+    <Compile Include="DAC\KCInventoryItemExt.cs" />
+    <Compile Include="DAC\KCCrossReferenceMapping.cs" />
+    <Compile Include="DAC\KCFirstAttributeMapping.cs" />
+    <Compile Include="DAC\KNSIKCInventoryItem.cs" />
+    <Compile Include="DAC\KCAttribute.cs" />
+    <Compile Include="DAC\KCAttributesMapping.cs" />
+    <Compile Include="DAC\KCBulkProductSyncConfig.cs" />
+    <Compile Include="DAC\KNSIKCClassification.cs" />
+    <Compile Include="DAC\KNSIKCClassificationsMapping.cs" />
+    <Compile Include="DAC\KCDistributionCenter.cs" />
+    <Compile Include="DAC\KCImagePlacement.cs" />
+    <Compile Include="DAC\Helper\KCAPIAccessToken.cs" />
+    <Compile Include="DAC\Helper\KCAPIWebReponse.cs" />
+    <Compile Include="DAC\Helper\KCEntities.cs" />
+    <Compile Include="DAC\Helper\KCInternalReponse.cs" />
+    <Compile Include="DAC\KCAcumaticaMappingField.cs" />
+    <Compile Include="DAC\KCChannelAdvisorMappingField.cs" />
+    <Compile Include="DAC\KCInventoryTrackingRule.cs" />
+    <Compile Include="DAC\KCLog.cs" />
+    <Compile Include="DAC\KCMapping.cs" />
+    <Compile Include="DAC\KCMappingSetupFilter.cs" />
+    <Compile Include="DAC\KCMarketplace .cs" />
+    <Compile Include="DAC\KCMarketplaceManagement.cs" />
+    <Compile Include="DAC\KCMSMQInitializationProperty.cs" />
+    <Compile Include="DAC\KCPaymentMethodsMapping.cs" />
+    <Compile Include="DAC\KCInventoryManagement.cs" />
+    <Compile Include="DAC\KCPriceAndInventoryMessage.cs" />
+    <Compile Include="DAC\KCProcessingEntry.cs" />
+    <Compile Include="DAC\KCProjectionBranchWithSite.cs" />
+    <Compile Include="DAC\KNSIKCRelationship.cs" />
+    <Compile Include="DAC\KCSiteAccess.cs" />
+    <Compile Include="DAC\KCSiteAssociation.cs" />
+    <Compile Include="DAC\KCSiteAssociationBranch.cs" />
+    <Compile Include="DAC\KCSiteMaster.cs" />
+    <Compile Include="DAC\KCStore .cs" />
+    <Compile Include="DAC\KCSecondAttributeMapping.cs" />
+    <Compile Include="DAC\KCTaxManagement.cs" />
+    <Compile Include="DAC\KNSIKCLabel.cs" />
+    <Compile Include="DAC\KCSOLineExt.cs" />
+    <Compile Include="DAC\KCSOOrderExt.cs" />
+    <Compile Include="DAC\KCSOShipmentExt.cs" />
+    <Compile Include="DAC\KCTaxExt.cs" />
+    <Compile Include="Descriptor\DataSlots\CrossReferenceMappingDatabaseSlot.cs" />
+    <Compile Include="Descriptor\DataSlots\CrossReferencesDatabaseSlot.cs" />
+    <Compile Include="Descriptor\DataSlots\KCAttributeDatabaseSlot.cs" />
+    <Compile Include="Descriptor\DataSlots\KCAttributesMappingDatabaseSlot.cs" />
+    <Compile Include="Descriptor\DataSlots\MappedAttributeByIdDatabaseSlot.cs" />
+    <Compile Include="Descriptor\KCApiHelper.cs" />
+    <Compile Include="Descriptor\KCConstants.cs" />
+    <Compile Include="Descriptor\KCMessages.cs" />
+    <Compile Include="Descriptor\KCSiteMasterHelper.cs" />
+    <Compile Include="BLC\KCSiteAssociationMaint.cs" />
+    <Compile Include="BLC\KCSiteMasterMaint.cs" />
+    <Compile Include="Descriptor\API\Constants\KCViewNameConstants.cs" />
+    <Compile Include="Descriptor\Exceptions\KCCorruptedShipmentException.cs" />
+    <Compile Include="Descriptor\Exceptions\KCCustomerSegmentedKeyException.cs" />
+    <Compile Include="Descriptor\Exceptions\KCTracelessException.cs" />
+    <Compile Include="Descriptor\Exceptions\KCInvalidMappingExpressionException.cs" />
+    <Compile Include="Descriptor\Extensions\KCDateTimeExtensions.cs" />
+    <Compile Include="Descriptor\Extensions\KCDbSinkExtensions.cs" />
+    <Compile Include="Descriptor\Extensions\KCDecimalExtension.cs" />
+    <Compile Include="Descriptor\Extensions\KCDictionaryExtensions.cs" />
+    <Compile Include="Descriptor\Extensions\KCListExtensions.cs" />
+    <Compile Include="Descriptor\Extensions\KCLogEventExtensions.cs" />
+    <Compile Include="Descriptor\Extensions\KCLogEventPropertyValueExtensions.cs" />
+    <Compile Include="Descriptor\Extensions\KCLoggerExtensions.cs" />
+    <Compile Include="Descriptor\Extensions\KCObjectExtensions.cs" />
+    <Compile Include="Descriptor\Extensions\KCStringExtensions.cs" />
+    <Compile Include="Descriptor\Extensions\KCTasksExtensions.cs" />
+    <Compile Include="Descriptor\Extensions\KCTraceSinkExtensions.cs" />
+    <Compile Include="Descriptor\Helpers\KCAttributeType.cs" />
+    <Compile Include="Descriptor\Helpers\KCChannelAdvisorMappingFieldHelper.cs" />
+    <Compile Include="Descriptor\Helpers\KCMappingHelper.cs" />
+    <Compile Include="Descriptor\Helpers\KCMarketplaceHelper.cs" />
+    <Compile Include="Descriptor\Helpers\KCSearchTypes.cs" />
+    <Compile Include="Descriptor\MSMQ\Enums\SyncType.cs" />
+    <Compile Include="Descriptor\MSMQ\Helpers\KCMSMQQueueHelper.cs" />
+    <Compile Include="Descriptor\Helpers\KCProductTypeComparer.cs" />
+    <Compile Include="Descriptor\Helpers\KCProductType.cs" />
+    <Compile Include="Descriptor\Helpers\KCReservedAttributes.cs" />
+    <Compile Include="Descriptor\Logger\IKCLogger.cs" />
+    <Compile Include="Descriptor\Logger\KCDbSink.cs" />
+    <Compile Include="Descriptor\Logger\KCLogDataHelper.cs" />
+    <Compile Include="Descriptor\Logger\KCLogEntities.cs" />
+    <Compile Include="Descriptor\Logger\KCLoggerConstants.cs" />
+    <Compile Include="Descriptor\Logger\KCLoggerContext.cs" />
+    <Compile Include="Descriptor\Logger\KCLoggerProperties.cs" />
+    <Compile Include="Descriptor\Logger\KCSerilogConfiguration.cs" />
+    <Compile Include="Descriptor\Logger\KCTraceSink.cs" />
+    <Compile Include="Descriptor\MSMQ\KCCustomMessageQueue.cs" />
+    <Compile Include="Descriptor\MSMQ\KCMSMQConstants.cs" />
+    <Compile Include="Descriptor\MSMQ\KCMSMQDataHelper.cs" />
+    <Compile Include="Descriptor\MSMQ\Models\KCMSMQInventoryPrice.cs" />
+    <Compile Include="Descriptor\MSMQ\Models\KCMSMQInventoryQuantity.cs" />
+    <Compile Include="Descriptor\MSMQ\Models\KCMSMQMessage.cs" />
+    <Compile Include="Descriptor\MSMQ\KCMSMQueueReader.cs" />
+    <Compile Include="Descriptor\Helpers\KCNamespaceReview.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\VersionInfo.cs" />
+    <Compile Include="Descriptor\Requests\KCImportOrderRequest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\InventoryService\InventoryService.wsdl" />
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.AddUpsellRelationshipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfArrayOfArrayOfBoolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfArrayOfAttributeInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfArrayOfBoolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfArrayOfClassificationConfigurationInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfArrayOfDistributionCenterInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfArrayOfDistributionCenterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfArrayOfDoesSkuExistResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfArrayOfImageInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfArrayOfInventoryItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfArrayOfInventoryQuantityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfArrayOfInventoryUpsellInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfArrayOfString.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfArrayOfSynchInventoryItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfArrayOfUpdateInventoryItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfBoolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfInt32.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfQuantityInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfStoreInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfString.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.APIResultOfVariationInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.AssignLabelListToInventoryItemListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.DeleteInventoryItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.DeleteUpsellRelationshipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.DoesSkuExistListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.DoesSkuExistResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.GetClassificationConfigurationInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.GetDistributionCenterListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.GetFilteredInventoryItemListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.GetFilteredSkuListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.GetInventoryItemAttributeListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.GetInventoryItemImageListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.GetInventoryItemListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.GetInventoryItemListWithFullDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.GetInventoryItemQuantityInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.GetInventoryItemShippingInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.GetInventoryItemStoreInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.GetInventoryItemVariationInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.GetInventoryQuantityListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.GetInventoryQuantityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.GetUpsellRelationshipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.PingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.RemoveLabelListFromInventoryItemListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.SynchInventoryItemListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.SynchInventoryItemResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.UpdateInventoryItemQuantityAndPriceListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\InventoryService\KChannelAdvisor.InventoryService.UpdateInventoryItemQuantityAndPriceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ShippingService\KChannelAdvisor.ShippingService.APIResultOfArrayOfOrderShipmentHistoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ShippingService\KChannelAdvisor.ShippingService.APIResultOfArrayOfShipmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ShippingService\KChannelAdvisor.ShippingService.APIResultOfArrayOfShippingCarrier.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ShippingService\KChannelAdvisor.ShippingService.APIResultOfShippingRateResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ShippingService\KChannelAdvisor.ShippingService.APIResultOfString.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ShippingService\KChannelAdvisor.ShippingService.GetOrderShipmentHistoryListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ShippingService\KChannelAdvisor.ShippingService.GetShippingCarrierListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ShippingService\KChannelAdvisor.ShippingService.GetShippingRateListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ShippingService\KChannelAdvisor.ShippingService.PingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ShippingService\KChannelAdvisor.ShippingService.SubmitOrderShipmentListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ShippingService\ShippingService.wsdl" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\InventoryService\configuration91.svcinfo" />
+    <None Include="Connected Services\InventoryService\configuration.svcinfo" />
+    <None Include="Connected Services\InventoryService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ShippingService\configuration91.svcinfo" />
+    <None Include="Connected Services\ShippingService\configuration.svcinfo" />
+    <None Include="Connected Services\ShippingService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Properties\version.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\InventoryService\" />
+    <WCFMetadataStorage Include="Connected Services\ShippingService\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>
+      C:\Acumatica\AcumaticaTraining\knchanneladvisor\CstCustomizationUtil\make_post_build_action.bat
+      mkdir C:\Acumatica\AcumaticaTraining\knchanneladvisor\KChannelAdvisor.source\Bin
+      xcopy  $(TargetPath) C:\Acumatica\AcumaticaTraining\knchanneladvisor\KChannelAdvisor.source\Bin /Y
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets" Condition="Exists('packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" />
+  <Target Name="BeforeBuild">
+    <Version VersionFile="Properties\version.txt" Major="1" Minor="0" BuildType="Automatic" StartDate="12/21/2018" RevisionType="BuildIncrement">
+      <Output TaskParameter="Major" PropertyName="Major" />
+      <Output TaskParameter="Minor" PropertyName="Minor" />
+      <Output TaskParameter="Build" PropertyName="Build" />
+      <Output TaskParameter="Revision" PropertyName="Revision" />
+    </Version>
+    <AssemblyInfo CodeLanguage="CS" OutputFile="Properties\VersionInfo.cs" AssemblyVersion="$(Major).$(Minor).$(Build).$(Revision)" AssemblyFileVersion="$(Major).$(Minor).$(Build).$(Revision)" />
+  </Target>
+</Project>
