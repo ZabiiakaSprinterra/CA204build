@@ -1,7 +1,0 @@
-<Table TableName="SOOrder">
-	<Column TableName="SOOrder" ColumnName="UsrKCSiteID" ColumnType="int" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="SOOrder" ColumnName="UsrKCSyncDate" ColumnType="date" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="SOOrder" ColumnName="UsrKCSiteName" ColumnType="string" AllowNull="True" MaxLength="50" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="SOOrder" ColumnName="UsrKCPublicNotes" ColumnType="string" AllowNull="True" MaxLength="4000" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="SOOrder" ColumnName="UsrKCSpecialInstructions" ColumnType="string" AllowNull="True" MaxLength="4000" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-</Table>

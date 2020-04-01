@@ -1,8 +1,0 @@
-<Table TableName="KCCrossReferenceMapping">
-	<Column TableName="KCCrossReferenceMapping" ColumnName="NoteID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCCrossReferenceMapping" ColumnName="CreatedByID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCCrossReferenceMapping" ColumnName="CreatedByScreenID" ColumnType="string" AllowNull="True" MaxLength="8" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCCrossReferenceMapping" ColumnName="LastModifiedByID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCCrossReferenceMapping" ColumnName="LastModifiedByScreenID" ColumnType="string" AllowNull="True" MaxLength="8" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCCrossReferenceMapping" ColumnName="Tstamp" ColumnType="Timestamp" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-</Table>

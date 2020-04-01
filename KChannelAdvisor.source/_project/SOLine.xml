@@ -1,4 +1,0 @@
-<Table TableName="SOLine">
-	<Column TableName="SOLine" ColumnName="UsrKCOrderItemID" ColumnType="int" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="SOLine" ColumnName="UsrKCCAOrderID" ColumnType="int" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-</Table>
