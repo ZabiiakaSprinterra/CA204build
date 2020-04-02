@@ -1,0 +1,46 @@
+Git repository: https://git.sprinterra.com/KNCHANNELADVISOR
+
+In order to have solution working without any additional configurations, you should follow these requirements:
+Acumatica ERP version: 18.203.0006
+Required instance path: C:\Acumatica\AcumaticaSites\KChannelAdvisor\Site
+Base project path: C:\Acumatica\AcumaticaTraining\KNCHANNELADVISOR
+Database name: KCHannelAdvisorDB
+SQL Server Name: localhost\SQLEXPRESS (something like SPRINT001\SQLEXPRESS 
+Required password for the user 'admin': 123
+
+Dependencies:
+ProductConfigurator1x0x210x0
+
+In order to set up instance:
+1. Download package 'ProductConfigurator1x0x210x0' from: 	\\fs\ERPAD\ProductConfigurator\Packages
+2. Download one of the ChannelAdvisor packages from: 		\\fs\ERPAD\KNChannelAdvisor\Packages	
+3. Rename the ChannelAdvisor package as KCHannelAdvisor.zip
+4. Open your instance
+5. Go to System -> Customization -> Customization Projects
+6. Import ProductConfigurator1x0x210x0.zip package
+7. Import KChannelAdvisor.zip package
+8. Publish both packages
+9. In File Explorer, go to
+	C:\Acumatica\AcumaticaTraining\KNCHANNELADVISOR\CstCustomizationUtil
+	and use update_site_action.bat to apply all database and ASPX pages to the instance
+10. Return to the instance
+11. Open KChannelAdvisor customization projects
+12. Select Publish -> Publish with Cleanup
+
+Git workflow:
+Default branch: dev
+For each task create branch using the following naming convention: sprint{{index}}/{{task code}}
+Example: sprint7/KCA-78
+After the work on the task is finished, its branch should be merged into Release branch of the sprint, which follows this naming convention: sprint{{index}}/Release
+Example: sprint7/Release
+Bugfixes are made in the Release branch
+When sprint is finished and package is delivered to the Kensium team, Release branch should be merged into dev.
+
+Sometimes, CstCustomizationUtil throws an exception, after which all files from KChannelAdvisor.source folder are deleted.
+To resolves this:
+1. Undo changes in KChannelAdvisor.source folder
+2. Copy 'Bin' and 'Pages' folders from the KChannelAdvisor.source folder
+3. Go to
+	C:\Acumatica\AcumaticaSites\KChannelAdvisor\Site
+4. Paste the copied folders here
+5. Retry update_site_action.bat/make_qa_action.bat executables

@@ -1,0 +1,33 @@
+<Sql TableName="KCSiteAccess" TableSchemaXml="#CDATA">
+	<CDATA name="TableSchemaXml"><![CDATA[<table name="KCSiteAccess">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="SiteMasterCD" type="NVarChar(30)" />
+  <col name="AccountId" type="Int" />
+  <col name="ProfileId" type="Int" />
+  <col name="DevKey" type="NVarChar(200)" nullable="true" />
+  <col name="DevPassword" type="NVarChar(1000)" nullable="true" />
+  <col name="DevConfirmPassword" type="NVarChar(1000)" nullable="true" />
+  <col name="Mode" type="Int" nullable="true" />
+  <col name="FTPHostname" type="NVarChar(150)" nullable="true" />
+  <col name="FTPUsername" type="NVarChar(50)" nullable="true" />
+  <col name="FTPPassword" type="NVarChar(1000)" nullable="true" />
+  <col name="FTPConfirmPassword" type="NVarChar(1000)" nullable="true" />
+  <col name="FTPInputDirectory" type="NVarChar(50)" nullable="true" />
+  <col name="RefreshToken" type="NVarChar(500)" nullable="true" />
+  <col name="ApplicationId" type="NVarChar(250)" nullable="true" />
+  <col name="SharedSecret" type="NVarChar(250)" nullable="true" />
+  <col name="FTPBatchMode" type="Bit" nullable="true" />
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
+  <col name="tstamp" type="Timestamp" />
+  <col name="NoteID" type="UniqueIdentifier" nullable="true" />
+  <index name="KCSiteAccess_FK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="SiteMasterCD" />
+  </index>
+</table>]]></CDATA>
+</Sql>

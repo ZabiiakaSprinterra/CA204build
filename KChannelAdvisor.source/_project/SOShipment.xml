@@ -1,0 +1,4 @@
+<Table TableName="SOShipment">
+	<Column TableName="SOShipment" ColumnName="UsrKCCAFulfillmentID" ColumnType="int" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="SOShipment" ColumnName="UsrKCExported" ColumnType="bool" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+</Table>

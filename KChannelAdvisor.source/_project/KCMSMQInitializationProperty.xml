@@ -1,0 +1,9 @@
+<Table TableName="KCMSMQInitializationProperty">
+	<Column TableName="KCMSMQInitializationProperty" ColumnName="NoteID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCMSMQInitializationProperty" ColumnName="CreatedByID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCMSMQInitializationProperty" ColumnName="CreatedByScreenID" ColumnType="string" AllowNull="True" MaxLength="8" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCMSMQInitializationProperty" ColumnName="LastModifiedByID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCMSMQInitializationProperty" ColumnName="LastModifiedByScreenID" ColumnType="string" AllowNull="True" MaxLength="8" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCMSMQInitializationProperty" ColumnName="Tstamp" ColumnType="Timestamp" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCMSMQInitializationProperty" ColumnName="LastModifiedDateTime" ColumnType="date" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+</Table>
