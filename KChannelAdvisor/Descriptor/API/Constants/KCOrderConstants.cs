@@ -4,6 +4,7 @@ namespace KChannelAdvisor.Descriptor.API.Constants
 {
     public static class KCOrderConstants
     {
+        public const string OrdFirst = "000001";
         public const string DeliveryStatusComplete = "Complete";
         public const string ExternallyManagedRollup = "ExternallyManaged";
         public const string SO = "SO";

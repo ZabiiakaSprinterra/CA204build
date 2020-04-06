@@ -114,7 +114,7 @@ namespace KChannelAdvisor.BLC.Ext
             baseHandler?.Invoke(sender, e);
             if (!(e.Row is SOOrder row)) return;
             Base.GetExtension<SOOrderEntryPCExt>().ReorderLines();
-            row.CuryOrderTotal= GetOrderTotals(Base.CurrentDocument.Current);
+            row.CuryOrderTotal = GetOrderTotals(Base.CurrentDocument.Current);
             RestoreTaxes(row);
         }
 
@@ -215,7 +215,7 @@ namespace KChannelAdvisor.BLC.Ext
 
         protected virtual void SOOrder_RowSelected(PXCache sender, PXRowSelectedEventArgs e, PXRowSelected baseHandler)
         {
-            baseHandler?.Invoke(sender, e);
+            //baseHandler?.Invoke(sender, e);
 
             if (e.Row == null)
             {
@@ -224,8 +224,6 @@ namespace KChannelAdvisor.BLC.Ext
 
             SOOrder row = (SOOrder)e.Row;
             KCSOOrderExt rowKCExt = row.GetExtension<KCSOOrderExt>();
-
-
             bool? FBA = rowKCExt.UsrKCSiteName?.EndsWith("/FBA");
             if (FBA == true)
             {

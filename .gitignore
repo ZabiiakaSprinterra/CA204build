@@ -1,0 +1,17 @@
+.vs
+*.suo
+Debug
+Release
+
+out
+obj
+packages
+*.user
+
+/CstCustomizationUtil/*.exe
+/CstCustomizationUtil/*.exe.config
+/CstCustomizationUtil/*.pdb
+/CstCustomizationUtil/*.dll
+/CstCustomizationUtil/*.xml
+*.log
+*.txt

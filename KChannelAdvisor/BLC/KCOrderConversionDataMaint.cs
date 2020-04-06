@@ -64,7 +64,15 @@ namespace KChannelAdvisor.BLC
             List<PXResult> paymentMethod = new List<PXResult> { new PXResult<PaymentMethod>(new PaymentMethod()) };
 
             // SOOrder
-            string orderNbr = entity.OrderNbr;
+            string orderNbr = "";
+            if (entity != null)
+            {
+                orderNbr = entity.OrderNbr;
+            }
+            else
+            {
+                orderNbr = KCOrderConstants.OrdFirst;
+            }
             result.Add(new KCMappingKey(KCViewNameConstants.Order, orderNbr),
                            KCResultsetHelper.GetRowsAsDictionary(SalesOrder.Cache, salesOrder));
 

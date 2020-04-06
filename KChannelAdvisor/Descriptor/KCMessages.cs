@@ -31,6 +31,7 @@ namespace KChannelAdvisor.Descriptor
         #endregion
 
         #region Classification
+        public const string NoClassificationsFound = "No classifications were found";
         public const string ThisItemClassCanNotBeDeletedBecauseItIsUsedInMapping = "The Item Class is mapped to Classification. Item Class may not be deleted";
         public const string ClassificationCanNotBeEmpty = "Please provide respective Classifications to the mapped Item Classes";
         public const string ClassificationMoreThanOnce = "One Classification may be associated with only one Item Class";

@@ -163,7 +163,16 @@ namespace KChannelAdvisor.BLC
         public void FillClassificationsFromCA(KCInventoryItemAPIHelper helper, List<string> newNames)
         {
             APIResultOfArrayOfClassificationConfigurationInformation classifications = helper.GetClassifications();
-            classifications.ResultData.ForEach(x => newNames.Add(x.Name));
+            try
+            {
+                classifications.ResultData.ForEach(x => newNames.Add(x.Name));
+            }
+            catch (System.ArgumentNullException ex)
+            {
+
+                throw new PXException(KCMessages.NoClassificationsFound);
+            }
+          
         }
 
         public List<string> GetClassificationAttributes(KCInventoryItemAPIHelper helper)
@@ -173,7 +182,7 @@ namespace KChannelAdvisor.BLC
 
             APIResultOfArrayOfClassificationConfigurationInformation classifications = helper.GetClassifications();
             List<ClassificationConfigurationInformationAttribute[]> attributeArrays = new List<ClassificationConfigurationInformationAttribute[]>();
-
+            if (classifications.ResultData == null) throw new PXException(KCMessages.NoClassificationsFound);
             foreach(ClassificationConfigurationInformation classification in classifications.ResultData)
             {
                 KNSIKCClassification savedClassification = Classifications.Select().RowCast<KNSIKCClassification>().Where(x => x.ClassificationName.Equals(classification.Name)).FirstOrDefault();

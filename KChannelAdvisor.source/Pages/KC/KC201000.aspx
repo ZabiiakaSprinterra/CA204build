@@ -57,7 +57,7 @@
                     <px:PXLayoutRule runat="server" StartRow="True" StartColumn="True">
                     </px:PXLayoutRule>
 
-                    <px:PXLabel ID="DefaltTaxZone" runat="server" AlreadyLocalized="False">Default Tax Zone:</px:PXLabel>
+                    <px:PXLabel ID="DefaltTaxZone" runat="server" AlreadyLocalized="False">Defalt Tax Zone:</px:PXLabel>
                     <px:PXLayoutRule runat="server" StartColumn="True">
                     </px:PXLayoutRule>
 

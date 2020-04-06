@@ -1,9 +1,0 @@
-<Table TableName="KCPaymentMethodsMapping">
-	<Column TableName="KCPaymentMethodsMapping" ColumnName="NoteID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCPaymentMethodsMapping" ColumnName="CreatedByID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCPaymentMethodsMapping" ColumnName="CreatedByScreenID" ColumnType="string" AllowNull="True" MaxLength="8" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCPaymentMethodsMapping" ColumnName="CreatedDateTime" ColumnType="date" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCPaymentMethodsMapping" ColumnName="LastModifiedByID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCPaymentMethodsMapping" ColumnName="LastModifiedByScreenID" ColumnType="string" AllowNull="True" MaxLength="8" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCPaymentMethodsMapping" ColumnName="Tstamp" ColumnType="Timestamp" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-</Table>

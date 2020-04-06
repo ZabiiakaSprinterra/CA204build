@@ -780,7 +780,8 @@ namespace KChannelAdvisor.Descriptor.API.DataHelper
                     }
 
                 docgraph.Document.Update(payment);
-
+                docgraph.Persist();
+                docgraph.Save.PressButton();
                 docgraph.release.Press();
             }
             catch (Exception ex)

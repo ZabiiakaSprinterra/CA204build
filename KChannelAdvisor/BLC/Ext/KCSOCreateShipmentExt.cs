@@ -9,7 +9,7 @@ namespace KChannelAdvisor.BLC.Ext
     public class KCSOCreateShipmentExt : PXGraphExtension<SOCreateShipment>
     {
         [PXFilterable]
-        public PXFilteredProcessing<SOOrder, SOOrderFilter> KCOrdersNonFBA;
+        public PXFilteredProcessing<SOOrder, SOOrderFilter> OrdersNonFBA;
 
         public virtual IEnumerable ordersNonFBA()
         {

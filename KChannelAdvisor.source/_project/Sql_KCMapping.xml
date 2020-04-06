@@ -11,14 +11,6 @@
   <col name="Direction" type="NVarChar(1)" nullable="true" />
   <col name="RuleType" type="NVarChar(1)" nullable="true" />
   <col name="SourceExpression" type="NVarChar(200)" nullable="true" />
-  <col name="NoteID" type="UniqueIdentifier" nullable="true" />
-  <col name="CreatedByID" type="UniqueIdentifier" nullable="true" />
-  <col name="CreatedByScreenID" type="Char(8)" nullable="true" />
-  <col name="CreatedDateTime" type="DateTime" nullable="true" />
-  <col name="LastModifiedByID" type="UniqueIdentifier" nullable="true" />
-  <col name="LastModifiedByScreenID" type="Char(8)" nullable="true" />
-  <col name="tstamp" type="Timestamp" />
-  <col name="LastModifiedDateTime" type="DateTime" nullable="true" />
   <index name="KCMapping_PK" clustered="true" primary="true" unique="true">
     <col name="CompanyID" />
     <col name="Id" />
