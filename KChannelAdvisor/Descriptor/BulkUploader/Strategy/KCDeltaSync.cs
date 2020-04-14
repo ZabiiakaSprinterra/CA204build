@@ -5,6 +5,7 @@ using KChannelAdvisor.Descriptor.Extensions;
 using ProductConfigurator.DAC.Ext;
 using PX.Data;
 using PX.Objects.IN;
+using System.Collections.Generic;
 using System;
 
 namespace KChannelAdvisor.Descriptor.BulkUploader.Strategy
@@ -43,7 +44,33 @@ namespace KChannelAdvisor.Descriptor.BulkUploader.Strategy
                 Where<INTran.lastModifiedDateTime, Greater<Required<KNSIKCInventoryItem.usrKCCASyncDate>>>>(graph);
         }
 
+        protected override List<string> GetAllowedHeaders()
+        {
+            // Add additional properties to the list
+            List<string> extendedHeadersList = new List<string>
+            {
+                KCHeaders.QuantityUpdateType        ,
+                KCHeaders.Quantity                  ,
+                KCHeaders.DCQuantity                ,
+                KCHeaders.DCQuantityUpdateType      ,
+                KCHeaders.StartingBid               ,
+                KCHeaders.Reserve                   ,
+                KCHeaders.SellerCost                ,
+                KCHeaders.EstimatedShippingCost     ,
+                KCHeaders.ProductMargin             ,
+                KCHeaders.BuyItNowPrice             ,
+                KCHeaders.RetailPrice               ,
+                KCHeaders.SecondChanceOfferPrice    ,
+                KCHeaders.MinimumPrice              ,
+                KCHeaders.MaximumPrice              ,
+                KCHeaders.MultipackQuantity         ,
+                KCHeaders.StorePrice                ,
+            };
+            // Merge basic version of headers list with additional one.
+            extendedHeadersList.AddRange(base.GetAllowedHeaders());
 
+            return extendedHeadersList;
+        }
         #region Update Validation
         /// <summary>
         /// Checks if inventory item was updated

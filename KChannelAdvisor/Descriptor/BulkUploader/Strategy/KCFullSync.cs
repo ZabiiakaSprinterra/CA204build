@@ -22,6 +22,7 @@ namespace KChannelAdvisor.Descriptor.BulkUploader.Strategy
                 KCHeaders.Quantity                  ,
                 KCHeaders.DCQuantity                ,
                 KCHeaders.DCQuantityUpdateType      ,
+                KCHeaders.Reserve                   ,
                 KCHeaders.StartingBid               ,
                 KCHeaders.Reserve                   ,
                 KCHeaders.SellerCost                ,
