@@ -434,11 +434,20 @@ namespace KChannelAdvisor.Descriptor.API.DataHelper
                         Where<Contact.eMail, Equal<Required<Contact.eMail>>>>.SelectSingleBound(graph, null, order.BuyerEmailAddress.Trim()).RowCast<Customer>().FirstOrDefault();
         }
 
+        public static CustomerPaymentMethod GetPaymenthMethodId(KCSiteMasterMaint graph, KCAPIOrder order)
+        {
+            return PXSelect<CustomerPaymentMethod, Where<CustomerPaymentMethod.bAccountID, Equal<Required<CustomerPaymentMethod.bAccountID>>>>.SelectSingleBound(graph, null, GetCustomerByCAOrder(graph,order).BAccountID.ToString()).RowCast<CustomerPaymentMethod>().FirstOrDefault();
+        }
+
         public static void CreatePaymentMethod(CustomerPaymentMethodMaint graph, KCPaymentMethodsMappingMaint paymentMethodMappingGraph, int? acctId, KCAPIOrder order)
         {
             var paymentMethod = graph.CustomerPaymentMethod.Insert();
             graph.CustomerPaymentMethod.Cache.SetValueExt<CustomerPaymentMethod.bAccountID>(paymentMethod, acctId);
             graph.CustomerPaymentMethod.Cache.SetValueExt<CustomerPaymentMethod.paymentMethodID>(paymentMethod, KCGeneralDataHelper.GetPaymentMethodID(paymentMethodMappingGraph, order));
+            graph.CustomerPaymentMethod.Cache.SetValueExt<CustomerPaymentMethod.descr>(paymentMethod, KCGeneralDataHelper.GetPaymentMethodID(paymentMethodMappingGraph, order));
+            paymentMethod.Descr = KCGeneralDataHelper.GetPaymentMethodID(paymentMethodMappingGraph, order).ToString();
+            graph.Save.PressButton();
+            graph.Persist();
             graph.Actions.PressSave();
         }
 

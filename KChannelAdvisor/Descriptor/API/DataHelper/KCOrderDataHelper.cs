@@ -150,7 +150,7 @@ namespace KChannelAdvisor.Descriptor.API.DataHelper
 
                     if (order.TotalTaxPrice > 0 || objtaxzone.IsExternal==true) SOApplyTax(order, orderGraph);
                     CreatePayment(orderGraph, acumaticaOrder, order);
-
+                    
                     request.AnyOrderImported = true;
                     logger.SetNonChildEntityId(entityId);
                     logger.Information(KCMessages.OrderImported(acumaticaOrder.OrderNbr, entityId));
@@ -540,7 +540,6 @@ namespace KChannelAdvisor.Descriptor.API.DataHelper
                     line.UOM = soLine.UOM;
                     lineExt.UsrKCCAOrderID = orderItem.OrderID;
                     lineExt.UsrKCOrderItemID = orderItem.ID;
-
                     graph.Transactions.Update(line);
                 }
             }
@@ -609,7 +608,6 @@ namespace KChannelAdvisor.Descriptor.API.DataHelper
             newChildLine.SiteID = parentLine.SiteID;
             newChildLineExt.UsrKCCAOrderID = CAChildItem.OrderID;
             newChildLineExt.UsrKCOrderItemID = CAChildItem.ID;
-
             graph.Transactions.Update(newChildLine);
             parentLine.GetExtension<SOLinePCExt>().UsrKNMasterQty += newChildLine.Qty;
 
@@ -766,7 +764,6 @@ namespace KChannelAdvisor.Descriptor.API.DataHelper
                 payment.ExtRefNbr = apiOrder.ID.ToString();
                 payment.AdjDate = ((DateTime)order.OrderDate).AddMinutes(1);
                 payment.BranchID = order.BranchID;
-
                 InsertSOAdjustments(order, docgraph, payment);
 
                 if (payment.CuryOrigDocAmt == 0m)
@@ -778,7 +775,10 @@ namespace KChannelAdvisor.Descriptor.API.DataHelper
                     {
                         payment.CuryOrigDocAmt = paymentprice;
                     }
-
+                if (payment.CashAccountID == null)
+                {
+                    payment.CashAccountID = orderext.CAccount.SelectSingle().CashAccountID;
+                }
                 docgraph.Document.Update(payment);
                 docgraph.Persist();
                 docgraph.Save.PressButton();

@@ -4,6 +4,7 @@ using ProductConfigurator.DAC.Ext;
 using ProductConfigurator.Descriptor.Ext;
 using PX.Data;
 using PX.Objects.AR;
+using PX.Objects.CA;
 using PX.Objects.CR;
 using PX.Objects.IN;
 using PX.Objects.SO;
@@ -51,6 +52,7 @@ namespace KChannelAdvisor.BLC.Ext
         public PXSelect<KCMarketplace, Where<KCMarketplace.marketplaceName, Equal<Required<KCMarketplace.marketplaceName>>>> KCMarketplaceEntity;
         public PXSelect<KCTaxManagement, Where<KCTaxManagement.marketplaceId, Equal<Required<KCTaxManagement.marketplaceId>>>> KCTaxManagementView;
         public PXSelect<TaxZone, Where<TaxZone.taxZoneID, Equal<Required<TaxZone.taxZoneID>>>> KCTaxZoneId;
+        public PXSelect<CashAccount> CAccount;
         public PXSelect<SOLine, Where<SOLine.orderNbr, Equal<Required<SOLine.orderNbr>>, And<SOLine.lineNbr, Equal<Required<SOLine.lineNbr>>>>> KCLineParent;
         #endregion
 

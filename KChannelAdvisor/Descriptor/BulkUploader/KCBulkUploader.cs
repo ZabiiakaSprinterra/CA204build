@@ -32,13 +32,13 @@ using System.Threading.Tasks;
 
 namespace KChannelAdvisor.Descriptor.BulkUploader
 {
-    internal class KCBulkUploader : IKCBulkServiceLocator
+    public class KCBulkUploader : IKCBulkServiceLocator
     {
-        private KCStore _store;
-        private readonly CancellationToken cancellationToken;
+        public KCStore _store;
+        public readonly CancellationToken cancellationToken;
         public KCInventoryItemAPIHelper ApiHelper { get; set; }
-        private KCBulkProductMaint Graph { get; }
-        protected KCLoggerProvider logger;
+        public KCBulkProductMaint Graph { get; }
+        public KCLoggerProvider logger;
         public IKCBulkStrategy _strategy;
 
         public KCBulkUploader(KCBulkProductMaint graph, KCLoggerProperties loggerProperties, CancellationToken cancellationToken)

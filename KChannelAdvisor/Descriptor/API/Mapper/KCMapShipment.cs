@@ -74,7 +74,7 @@ namespace KChannelAdvisor.Descriptor.API.Mapper
             return wrapper;
         }
 
-        private bool ParentIsGrouped(PXResultset<SOLine> lines, SOLinePCExt soLinePcExt)
+        public bool ParentIsGrouped(PXResultset<SOLine> lines, SOLinePCExt soLinePcExt)
         {
             if (soLinePcExt == null) return false;
 
