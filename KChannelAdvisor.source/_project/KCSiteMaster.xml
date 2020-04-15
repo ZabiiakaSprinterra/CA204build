@@ -1,14 +1,12 @@
 <Table TableName="KCSiteMaster">
 	<Column TableName="KCSiteMaster" ColumnName="TaxZone" ColumnType="string" AllowNull="True" MaxLength="50" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCSiteMaster" ColumnName="ApiResponse" ColumnType="string" AllowNull="True" MaxLength="4000" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCSiteMaster" ColumnName="IsImportTax" ColumnType="string" AllowNull="True" MaxLength="50" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
 	<Column TableName="KCSiteMaster" ColumnName="BaseUrl" ColumnType="string" AllowNull="True" MaxLength="4000" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCSiteMaster" ColumnName="ApiResponse" ColumnType="string" AllowNull="True" MaxLength="4000" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
 	<Column TableName="KCSiteMaster" ColumnName="ChacheControlHeader" ColumnType="string" AllowNull="True" MaxLength="4000" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCSiteMaster" ColumnName="SoapCaptionHeader" ColumnType="string" AllowNull="True" MaxLength="4000" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCSiteMaster" ColumnName="Envelop" ColumnType="string" AllowNull="True" MaxLength="4000" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="KCSiteMaster" ColumnName="Webservices" ColumnType="string" AllowNull="True" MaxLength="4000" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
 	<Column TableName="KCSiteMaster" ColumnName="EndpointAddressValueInventory" ColumnType="string" AllowNull="True" MaxLength="4000" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
 	<Column TableName="KCSiteMaster" ColumnName="EndpointAddressValueShipment" ColumnType="string" AllowNull="True" MaxLength="4000" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCSiteMaster" ColumnName="Envelop" ColumnType="string" AllowNull="True" MaxLength="4000" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCSiteMaster" ColumnName="IsImportTax" ColumnType="string" AllowNull="True" MaxLength="1" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCSiteMaster" ColumnName="SoapCaptionHeader" ColumnType="string" AllowNull="True" MaxLength="4000" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCSiteMaster" ColumnName="Webservices" ColumnType="string" AllowNull="True" MaxLength="4000" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCSiteMaster" ColumnName="IsFBAInvoice" ColumnType="bool" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="KCSiteMaster" ColumnName="NoteID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
 </Table>

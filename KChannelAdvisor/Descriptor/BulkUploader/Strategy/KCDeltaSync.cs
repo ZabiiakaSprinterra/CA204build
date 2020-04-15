@@ -5,8 +5,8 @@ using KChannelAdvisor.Descriptor.Extensions;
 using ProductConfigurator.DAC.Ext;
 using PX.Data;
 using PX.Objects.IN;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 
 namespace KChannelAdvisor.Descriptor.BulkUploader.Strategy
 {
@@ -43,7 +43,6 @@ namespace KChannelAdvisor.Descriptor.BulkUploader.Strategy
             QuantityUpdate = new PXSelect<INTran,
                 Where<INTran.lastModifiedDateTime, Greater<Required<KNSIKCInventoryItem.usrKCCASyncDate>>>>(graph);
         }
-
         protected override List<string> GetAllowedHeaders()
         {
             // Add additional properties to the list
@@ -63,6 +62,8 @@ namespace KChannelAdvisor.Descriptor.BulkUploader.Strategy
                 KCHeaders.SecondChanceOfferPrice    ,
                 KCHeaders.MinimumPrice              ,
                 KCHeaders.MaximumPrice              ,
+                KCHeaders.RetailPrice               ,
+                KCHeaders.Reserve                   ,
                 KCHeaders.MultipackQuantity         ,
                 KCHeaders.StorePrice                ,
             };
@@ -71,6 +72,7 @@ namespace KChannelAdvisor.Descriptor.BulkUploader.Strategy
 
             return extendedHeadersList;
         }
+
         #region Update Validation
         /// <summary>
         /// Checks if inventory item was updated

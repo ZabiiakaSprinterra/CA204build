@@ -43,6 +43,8 @@ namespace KChannelAdvisor.Descriptor.BulkUploader.Strategy
             return new List<string>
             {
                 KCHeaders.QuantityUpdateType        ,
+                KCHeaders.RetailPrice               ,
+                KCHeaders.Reserve                   ,
                 KCHeaders.Quantity                  ,
                 KCHeaders.DCQuantity                ,
                 KCHeaders.DCQuantityUpdateType      ,

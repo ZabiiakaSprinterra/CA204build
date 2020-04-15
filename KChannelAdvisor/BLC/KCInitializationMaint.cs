@@ -26,7 +26,7 @@ namespace KChannelAdvisor.BLC
         #region Actions
         public PXSave<KCMSMQInitializationProperty> save;
         public PXCancel<KCMSMQInitializationProperty> cancel;
-        public PXAction<KCMSMQInitializationProperty> initialize;
+        public PXAction<KCMSMQInitializationProperty> initializeAction;
         #endregion
 
         #region Constructor
@@ -41,7 +41,7 @@ namespace KChannelAdvisor.BLC
         #region Action Handlers
         [PXButton]
         [PXUIField(DisplayName = "Initialize")]
-        public virtual void Initialize()
+        public virtual void InitializeAction()
         {
             bool msgExist = MessagesExist();
 

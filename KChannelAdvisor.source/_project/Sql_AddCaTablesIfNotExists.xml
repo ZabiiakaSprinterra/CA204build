@@ -1,0 +1,139 @@
+<Sql TableName="AddCaTablesIfNotExists" CustomScript="#CDATA">
+	<CDATA name="CustomScript"><![CDATA[IF OBJECT_ID(N'dbo.KNSIKCClassification', N'U') IS NULL 
+BEGIN 
+CREATE TABLE [dbo].[KNSIKCClassification](
+	[CompanyID] [int] NOT NULL,
+	[ClassificationID] [int] IDENTITY(1,1) NOT NULL,
+	[ClassificationName] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_KNSIKCClassifications] PRIMARY KEY CLUSTERED 
+(
+	[CompanyID] ASC,
+	[ClassificationID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]; 
+END;
+
+IF NOT EXISTS ( SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='KNSIKCClassification' AND COLUMN_NAME='NoteID')
+BEGIN ALTER TABLE dbo.[KNSIKCClassification] ADD [NoteID] [uniqueidentifier] NULL END
+GO
+
+
+IF OBJECT_ID(N'dbo.KNSIKCClassificationsMapping', N'U') IS NULL 
+BEGIN
+CREATE TABLE [dbo].[KNSIKCClassificationsMapping](
+	[CompanyID] [int] NOT NULL,
+	[ItemClassID] [int] NOT NULL,
+	[ClassificationID] [int] NULL,
+	[IsMapped] [bit] NULL,
+	[ChannelAdvisorSKU] [nvarchar](30) NULL,
+	[LastModifiedDateTime] [datetime] NOT NULL,
+ CONSTRAINT [PK_KNSIKCClassificationsMapping] PRIMARY KEY CLUSTERED 
+(
+	[CompanyID] ASC,
+	[ItemClassID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END;
+
+IF NOT EXISTS ( SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='KNSIKCClassificationsMapping' AND COLUMN_NAME='NoteID')
+BEGIN ALTER TABLE dbo.[KNSIKCClassificationsMapping] ADD [NoteID] [uniqueidentifier] NULL END
+GO
+
+IF OBJECT_ID(N'dbo.KNSIKCInventoryItem', N'U') IS NULL 
+BEGIN
+CREATE TABLE [dbo].[KNSIKCInventoryItem](
+	[CompanyID] [int] NOT NULL,
+	[InventoryID] [int] NOT NULL,
+	[UsrKCCAID] [int] NULL,
+	[UsrKCCAParentID] [nvarchar](100) NULL,
+	[UsrKCCASyncDate] [datetime] NULL,
+	[UsrKCActiveOnCa] [bit] NULL,
+	[UsrKCAllowedForFba] [bit] NULL,
+	[UsrKCReservePrice] [decimal](38, 2) NULL,
+	[UsrKCRetailPrice] [decimal](38, 2) NULL,
+	[UsrKCStartingPrice] [decimal](38, 2) NULL,
+	[UsrKCStorePrice] [decimal](38, 2) NULL,
+	[UsrKCSecondChanceOfferPrice] [decimal](38, 2) NULL,
+	[UsrKCProductMargin] [decimal](38, 2) NULL,
+	[UsrKCMinPrice] [decimal](38, 2) NULL,
+	[UsrKCMaxPrice] [decimal](38, 2) NULL,
+	[UsrKCLastUpdatedDateTime] [datetime] NULL,
+	[CreatedByID] [uniqueidentifier] NOT NULL,
+	[CreatedByScreenID] [char](8) NOT NULL,
+	[CreatedDateTime] [datetime] NOT NULL,
+	[LastModifiedByID] [uniqueidentifier] NOT NULL,
+	[LastModifiedByScreenID] [char](8) NOT NULL,
+	[LastModifiedDateTime] [datetime] NOT NULL,
+	[tstamp] [timestamp] NOT NULL,
+        [UsrKCCASyncDateTicks] [bigint] NULL,
+        [NoteID] [uniqueidentifier] NULL
+ CONSTRAINT [PK_KNSIKCInventoryItem] PRIMARY KEY CLUSTERED 
+(
+	[CompanyID] ASC,
+	[InventoryID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END;
+
+IF NOT EXISTS ( SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='KNSIKCInventoryItem' AND COLUMN_NAME='NoteID')
+BEGIN ALTER TABLE dbo.[KNSIKCInventoryItem] ADD [NoteID] [uniqueidentifier] NULL END
+GO
+
+IF NOT EXISTS ( SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='KNSIKCInventoryItem' AND COLUMN_NAME='UsrKCCASyncDateTicks')
+BEGIN ALTER TABLE dbo.[KNSIKCInventoryItem] ADD [UsrKCCASyncDateTicks] [bigint] NULL END
+GO
+
+IF OBJECT_ID(N'dbo.KNSIKCLabel', N'U') IS NULL 
+BEGIN
+CREATE TABLE [dbo].[KNSIKCLabel](
+	[CompanyID] [int] NOT NULL,
+	[InventoryItemId] [int] NOT NULL,
+	[LabelName] [nvarchar](50) NOT NULL,
+	[CreatedByID] [uniqueidentifier] NOT NULL,
+	[CreatedByScreenID] [char](8) NOT NULL,
+	[CreatedDateTime] [datetime] NOT NULL,
+	[LastModifiedByID] [uniqueidentifier] NOT NULL,
+	[LastModifiedByScreenID] [char](8) NOT NULL,
+	[LastModifiedDateTime] [datetime] NOT NULL,
+	[tstamp] [timestamp] NOT NULL,
+ CONSTRAINT [KNSIKCLabel_PK] PRIMARY KEY CLUSTERED 
+(
+	[CompanyID] ASC,
+	[InventoryItemId] ASC,
+	[LabelName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END;
+
+IF NOT EXISTS ( SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='KNSIKCLabel' AND COLUMN_NAME='NoteID')
+BEGIN ALTER TABLE dbo.[KNSIKCLabel] ADD [NoteID] [uniqueidentifier] NULL END
+GO
+
+IF OBJECT_ID(N'dbo.KNSIKCRelationship', N'U') IS NULL 
+BEGIN
+CREATE TABLE [dbo].[KNSIKCRelationship](
+	[CompanyID] [int] NOT NULL,
+	[RelationshipId] [nvarchar](30) NOT NULL,
+	[RelationshipName] [nvarchar](30) NOT NULL,
+	[ItemClassId] [int] NOT NULL,
+	[FirstAttributeId] [nvarchar](30) NOT NULL,
+	[SecondAttributeId] [nvarchar](30) NOT NULL,
+	[CreatedByID] [uniqueidentifier] NOT NULL,
+	[CreatedByScreenID] [char](8) NOT NULL,
+	[CreatedDateTime] [datetime] NOT NULL,
+	[LastModifiedByID] [uniqueidentifier] NOT NULL,
+	[LastModifiedByScreenID] [char](8) NOT NULL,
+	[LastModifiedDateTime] [datetime] NOT NULL,
+	[tstamp] [timestamp] NOT NULL,
+ CONSTRAINT [KNSIKCRelationship_PK] PRIMARY KEY CLUSTERED 
+(
+	[CompanyID] ASC,
+	[RelationshipId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END;
+
+IF NOT EXISTS ( SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='KNSIKCRelationship' AND COLUMN_NAME='NoteID')
+BEGIN ALTER TABLE dbo.[KNSIKCRelationship] ADD [NoteID] [uniqueidentifier] NULL END
+GO]]></CDATA>
+</Sql>

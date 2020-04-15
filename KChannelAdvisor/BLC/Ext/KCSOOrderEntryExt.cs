@@ -4,6 +4,7 @@ using ProductConfigurator.DAC.Ext;
 using ProductConfigurator.Descriptor.Ext;
 using PX.Data;
 using PX.Objects.AR;
+using PX.Objects.CA;
 using PX.Objects.CR;
 using PX.Objects.IN;
 using PX.Objects.SO;
@@ -51,6 +52,7 @@ namespace KChannelAdvisor.BLC.Ext
         public PXSelect<KCMarketplace, Where<KCMarketplace.marketplaceName, Equal<Required<KCMarketplace.marketplaceName>>>> KCMarketplaceEntity;
         public PXSelect<KCTaxManagement, Where<KCTaxManagement.marketplaceId, Equal<Required<KCTaxManagement.marketplaceId>>>> KCTaxManagementView;
         public PXSelect<TaxZone, Where<TaxZone.taxZoneID, Equal<Required<TaxZone.taxZoneID>>>> KCTaxZoneId;
+        public PXSelect<CashAccount> CAccount;
         public PXSelect<SOLine, Where<SOLine.orderNbr, Equal<Required<SOLine.orderNbr>>, And<SOLine.lineNbr, Equal<Required<SOLine.lineNbr>>>>> KCLineParent;
         #endregion
 
@@ -114,7 +116,7 @@ namespace KChannelAdvisor.BLC.Ext
             baseHandler?.Invoke(sender, e);
             if (!(e.Row is SOOrder row)) return;
             Base.GetExtension<SOOrderEntryPCExt>().ReorderLines();
-            row.CuryOrderTotal= GetOrderTotals(Base.CurrentDocument.Current);
+            row.CuryOrderTotal = GetOrderTotals(Base.CurrentDocument.Current);
             RestoreTaxes(row);
         }
 
@@ -215,7 +217,7 @@ namespace KChannelAdvisor.BLC.Ext
 
         protected virtual void SOOrder_RowSelected(PXCache sender, PXRowSelectedEventArgs e, PXRowSelected baseHandler)
         {
-            baseHandler?.Invoke(sender, e);
+            //baseHandler?.Invoke(sender, e);
 
             if (e.Row == null)
             {
@@ -224,8 +226,6 @@ namespace KChannelAdvisor.BLC.Ext
 
             SOOrder row = (SOOrder)e.Row;
             KCSOOrderExt rowKCExt = row.GetExtension<KCSOOrderExt>();
-
-
             bool? FBA = rowKCExt.UsrKCSiteName?.EndsWith("/FBA");
             if (FBA == true)
             {

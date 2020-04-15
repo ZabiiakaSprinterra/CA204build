@@ -181,7 +181,7 @@ namespace KChannelAdvisor.BLC
             }
         }
 
-        private static void ProcessStore(KCStore store, CancellationToken token)
+        public static void ProcessStore(KCStore store, CancellationToken token)
         {
 
             KCBulkProductMaint graph = CreateInstance<KCBulkProductMaint>();
@@ -194,7 +194,7 @@ namespace KChannelAdvisor.BLC
         #endregion
 
         #region Event Handlers
-        protected virtual void KCBulkProductSyncConfig_RowSelected(PXCache sender, PXRowSelectedEventArgs e)
+        public virtual void KCBulkProductSyncConfig_RowSelected(PXCache sender, PXRowSelectedEventArgs e)
         {
             if (!(e.Row is KCBulkProductSyncConfig row)) return;
 
@@ -203,7 +203,7 @@ namespace KChannelAdvisor.BLC
             PXUIFieldAttribute.SetVisible<KCBulkProductSyncConfig.dateTo>(sender, row, isCustomSync);
         }
 
-        protected virtual void KCBulkProductSyncConfig_SyncType_FieldUpdated(PXCache sender, PXFieldUpdatedEventArgs e)
+        public virtual void KCBulkProductSyncConfig_SyncType_FieldUpdated(PXCache sender, PXFieldUpdatedEventArgs e)
         {
             if (!(e.Row is KCBulkProductSyncConfig row)) return;
             foreach (var store in Stores.Select().RowCast<KCStore>())
@@ -213,7 +213,7 @@ namespace KChannelAdvisor.BLC
             }
         }
 
-        protected virtual void KCBulkProductSyncConfig_DateFrom_FieldUpdated(PXCache sender, PXFieldUpdatedEventArgs e)
+        public virtual void KCBulkProductSyncConfig_DateFrom_FieldUpdated(PXCache sender, PXFieldUpdatedEventArgs e)
         {
             if (!(e.Row is KCBulkProductSyncConfig row)) return;
             foreach (var store in Stores.Select().RowCast<KCStore>())
@@ -223,7 +223,7 @@ namespace KChannelAdvisor.BLC
             }
         }
 
-        protected virtual void KCBulkProductSyncConfig_DateTo_FieldUpdated(PXCache sender, PXFieldUpdatedEventArgs e)
+        public virtual void KCBulkProductSyncConfig_DateTo_FieldUpdated(PXCache sender, PXFieldUpdatedEventArgs e)
         {
             if (!(e.Row is KCBulkProductSyncConfig row)) return;
             foreach (var store in Stores.Select().RowCast<KCStore>())
@@ -235,13 +235,13 @@ namespace KChannelAdvisor.BLC
         #endregion
 
         #region Helper methods
-        private static int GetRequestId()
+        public static int GetRequestId()
         {
             KCLog lastLog = GetLastLog();
             return lastLog != null ? lastLog.RequestId.GetValueOrDefault() + 1 : 1;
         }
 
-        private static KCLog GetLastLog()
+        public static KCLog GetLastLog()
         {
             KCRequestLogInq graph = CreateInstance<KCRequestLogInq>();
             KCLog lastLog = graph.LastLog.SelectSingle();

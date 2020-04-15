@@ -141,14 +141,14 @@
 						<GIResult LineNbr="12" SortOrder="4" IsActive="1" Field="usrKNCPAvailableForSale" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="549cef05-f9db-4eee-92cc-9475a39edb9e" />
 						<GIResult LineNbr="8" SortOrder="2" IsActive="1" Field="usrKNCPQuantityAtVendor" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="62d0a946-5cdc-4f5d-ac6c-1eaa24457d75" />
 					</GITable>
+					<GITable Alias="KNSIKCClassificationsMapping" Name="KChannelAdvisor.DAC.KNSIKCClassificationsMapping" />
 					<GITable Alias="KCSiteMaster" Name="KChannelAdvisor.DAC.KCSiteMaster" />
 					<GITable Alias="KCInventoryItem" Name="KNCommerceBasic.KNSIKCInventoryItem" />
-					<GITable Alias="KCClassificationsMapping" Name="KChannelAdvisor.DAC.KNSIKCClassificationsMapping" />
 					<GITable Alias="InventoryItem" Name="PX.Objects.IN.InventoryItem">
 						<GIRelation LineNbr="6" ChildTable="KCInventoryItem" IsActive="1" JoinType="L">
 							<GIOn LineNbr="5" ParentField="inventoryID" Condition="E " ChildField="inventoryID" Operation="A" />
 						</GIRelation>
-						<GIRelation LineNbr="5" ChildTable="KCClassificationsMapping" IsActive="1" JoinType="L">
+						<GIRelation LineNbr="5" ChildTable="KNSIKCClassificationsMapping" IsActive="1" JoinType="L">
 							<GIOn LineNbr="2" ParentField="itemClassID" Condition="E " ChildField="itemClassID" Operation="A" />
 						</GIRelation>
 						<GIResult LineNbr="11" SortOrder="3" IsActive="1" Field="inventoryID" IsVisible="1" DefaultNav="1" QuickFilter="0" FastFilter="1" RowID="9681104b-1930-4675-b669-a6183abda009" />
@@ -158,7 +158,7 @@
 					<GIWhere LineNbr="5" IsActive="1" OpenBrackets="(        " DataFieldName="InventoryItem.itemStatus" Condition="E " IsExpression="0" Value1="AC" CloseBrackets=")        " Operation="A" />
 					<GIWhere LineNbr="4" IsActive="1" OpenBrackets="(        " DataFieldName="InventoryItem.stkItem" Condition="E " IsExpression="0" Value1="1" CloseBrackets=")        " Operation="A" />
 					<GIWhere LineNbr="3" IsActive="1" OpenBrackets="(        " DataFieldName="KCInventoryItem.usrKCActiveOnCa" Condition="E " IsExpression="0" Value1="1" CloseBrackets=")        " Operation="A" />
-					<GIWhere LineNbr="2" IsActive="1" OpenBrackets="(        " DataFieldName="KCClassificationsMapping.isMapped" Condition="E " IsExpression="0" Value1="1" CloseBrackets=")        " Operation="A" />
+					<GIWhere LineNbr="2" IsActive="1" OpenBrackets="(        " DataFieldName="KNSIKCClassificationsMapping.isMapped" Condition="E " IsExpression="0" Value1="1" CloseBrackets=")        " Operation="A" />
 					<GIWhere LineNbr="1" IsActive="1" OpenBrackets="(        " DataFieldName="KCInventoryItem.usrKCCAID" Condition="NN" IsExpression="0" CloseBrackets=")        " Operation="A" />
 					<SiteMap linkname="toDesignById">
 						<row Position="7849" Title="Vendor Quantity Sync" Url="~/GenericInquiry/GenericInquiry.aspx?id=faf08691-cc32-4de2-8684-21890080d00f" Expanded="0" IsFolder="0" ScreenID="GI002288" NodeID="10288db9-7c5d-4b2e-9927-e9c9e17033b8" ParentID="5b7b3f4a-4212-4a3a-a8ec-9ead4a936ff3">

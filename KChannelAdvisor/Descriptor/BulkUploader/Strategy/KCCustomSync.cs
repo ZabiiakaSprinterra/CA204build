@@ -5,8 +5,8 @@ using KChannelAdvisor.Descriptor.Extensions;
 using ProductConfigurator.DAC.Ext;
 using PX.Data;
 using PX.Objects.IN;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 
 namespace KChannelAdvisor.Descriptor.BulkUploader.Strategy
 {
@@ -59,14 +59,14 @@ namespace KChannelAdvisor.Descriptor.BulkUploader.Strategy
             QuantityUpdate = new PXSelect<INTran,
               Where<INTran.lastModifiedDateTime, Greater<Required<KNSIKCInventoryItem.usrKCCASyncDate>>>>(graph);
         }
+
         protected override List<string> GetAllowedHeaders()
         {
             // Add additional properties to the list
             List<string> extendedHeadersList = new List<string>
             {
                 KCHeaders.QuantityUpdateType        ,
-                KCHeaders.Quantity                  , 
-                KCHeaders.Reserve                   ,
+                KCHeaders.Quantity                  ,
                 KCHeaders.DCQuantity                ,
                 KCHeaders.DCQuantityUpdateType      ,
                 KCHeaders.StartingBid               ,

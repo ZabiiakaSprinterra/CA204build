@@ -1,4 +1,17 @@
 <Table TableName="InventoryItem">
+	<Column TableName="InventoryItem" ColumnName="UsrKCCAID" ColumnType="int" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
 	<Column TableName="InventoryItem" ColumnName="UsrKCCAParentID" ColumnType="string" AllowNull="True" MaxLength="100" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-	<Column TableName="InventoryItem" ColumnName="UsrKNCPBranch" ColumnType="string" AllowNull="True" MaxLength="300" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="InventoryItem" ColumnName="UsrKCCASyncDate" ColumnType="date" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="InventoryItem" ColumnName="UsrKCActiveOnCa" ColumnType="bool" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="InventoryItem" ColumnName="UsrKCAllowedForFba" ColumnType="bool" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="InventoryItem" ColumnName="UsrKCRelationshipName" ColumnType="string" AllowNull="True" MaxLength="30" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="InventoryItem" ColumnName="UsrKCClassificationName" ColumnType="string" AllowNull="True" MaxLength="30" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="InventoryItem" ColumnName="UsrKCReservePrice" ColumnType="decimal" AllowNull="True" DecimalPrecision="2" DecimalLength="38" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="InventoryItem" ColumnName="UsrKCRetailPrice" ColumnType="decimal" AllowNull="True" DecimalPrecision="2" DecimalLength="38" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="InventoryItem" ColumnName="UsrKCStartingPrice" ColumnType="decimal" AllowNull="True" DecimalPrecision="2" DecimalLength="38" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="InventoryItem" ColumnName="UsrKCStorePrice" ColumnType="decimal" AllowNull="True" DecimalPrecision="2" DecimalLength="38" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="InventoryItem" ColumnName="UsrKCSecondChanceOfferPrice" ColumnType="decimal" AllowNull="True" DecimalPrecision="2" DecimalLength="38" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="InventoryItem" ColumnName="UsrKCProductMargin" ColumnType="decimal" AllowNull="True" DecimalPrecision="2" DecimalLength="38" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="InventoryItem" ColumnName="UsrKCMinPrice" ColumnType="decimal" AllowNull="True" DecimalPrecision="2" DecimalLength="38" IsNewColumn="True" IsUnicode="True" />
+	<Column TableName="InventoryItem" ColumnName="UsrKCMaxPrice" ColumnType="decimal" AllowNull="True" DecimalPrecision="2" DecimalLength="38" IsNewColumn="True" IsUnicode="True" />
 </Table>

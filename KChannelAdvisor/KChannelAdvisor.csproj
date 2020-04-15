@@ -39,6 +39,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AWSSDK, Version=2.3.33.0, Culture=neutral, PublicKeyToken=9f476d3089b52be3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AcumaticaSites\CASandbox100\Site\Bin\AWSSDK.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.11.16.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Program Files\Acumatica ERP\Files\Bin\HtmlAgilityPack.dll</HintPath>
@@ -48,7 +52,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\AcumaticaSites\CASandbox100\Site\Bin\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="ProductConfigurator">
+    <Reference Include="ProductConfigurator, Version=1.0.601.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\AcumaticaSites\CASandbox100\Site\Bin\ProductConfigurator.dll</HintPath>
     </Reference>
     <Reference Include="PX.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
@@ -63,29 +68,22 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\AcumaticaSites\CASandbox100\Site\Bin\PX.Data.dll</HintPath>
     </Reference>
-    <Reference Include="PX.DbServices, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="PX.DbServices">
       <HintPath>..\..\..\AcumaticaSites\CASandbox100\Site\Bin\PX.DbServices.dll</HintPath>
     </Reference>
     <Reference Include="PX.Objects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\AcumaticaSites\CASandbox100\Site\Bin\PX.Objects.dll</HintPath>
     </Reference>
-    <Reference Include="PX.Objects.FS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="PX.Objects.FS">
       <HintPath>..\..\..\AcumaticaSites\CASandbox100\Site\Bin\PX.Objects.FS.dll</HintPath>
     </Reference>
     <Reference Include="PX.PushNotifications, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\AcumaticaSites\CASandbox100\Site\Bin\PX.PushNotifications.dll</HintPath>
     </Reference>
-    <Reference Include="PX.Web.Customization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="PX.Web.Customization">
       <HintPath>..\..\..\AcumaticaSites\CASandbox100\Site\Bin\PX.Web.Customization.dll</HintPath>
-    </Reference>
-    <Reference Include="PX.Web.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\AcumaticaSites\CASandbox100\Site\Bin\PX.Web.UI.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=100.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

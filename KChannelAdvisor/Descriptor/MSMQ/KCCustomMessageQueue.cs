@@ -24,7 +24,7 @@ namespace KChannelAdvisor.Descriptor.MSMQ
     public class KCCustomMessageQueue : IPushNotificationSender, IDisposable, IPushNotificationSenderFactory
     {
         private const string INVENTORY_ID = "InventoryID";
-
+        private const string WAREHOUSE_ID = "WarehouseID";
         private const string INSERTED = "Inserted";
         private const string DELETED = "Deleted";
         private const string RETAIL_PRICE = "RetailPrice";
@@ -129,6 +129,7 @@ namespace KChannelAdvisor.Descriptor.MSMQ
                 {
                     var inserted = insertedList[x];
                     var inventoryCD = inserted.SelectToken(INVENTORY_ID)?.ToString();
+                    var warehouseID = inserted.SelectToken(WAREHOUSE_ID)?.ToString();
                     if (string.IsNullOrWhiteSpace(inventoryCD))
                     {
                         continue;
@@ -150,12 +151,12 @@ namespace KChannelAdvisor.Descriptor.MSMQ
 
                             if (rule == KCInventoryTrackingRulesConstants.Consolidate)
                             {
-                                SendInventoryUpdateMessage(syncType, inventoryCD, baseMessage, inserted, deleted);
+                                SendInventoryUpdateMessage(syncType, inventoryCD, baseMessage, inserted, deleted, warehouseID);
                             }
                             else
                             {
                                 var warehouse = inserted.SelectToken("INSite_siteID")?.ToString();
-                                if (!string.IsNullOrWhiteSpace(warehouse) && graph.IsSiteMapped(warehouse))
+                                if (!string.IsNullOrWhiteSpace(warehouse))
                                 {
                                     SendInventoryUpdateMessage(syncType, inventoryCD, baseMessage, inserted, deleted);
                                 }
@@ -243,7 +244,7 @@ namespace KChannelAdvisor.Descriptor.MSMQ
                    || insertedToken.SelectToken(MAXIMUM_PRICE)?.ToString() != deletedToken.SelectToken(MAXIMUM_PRICE)?.ToString();
         }
 
-        private bool IsPreviousMessage(SyncType syncType, string inventoryId, Message msg)
+        private bool IsPreviousMessage(SyncType syncType, string inventoryId, Message msg, string warehouse)
         {
             bool result = false;
             var reader = new StreamReader(msg.BodyStream);
@@ -256,7 +257,8 @@ namespace KChannelAdvisor.Descriptor.MSMQ
                 {
                     //should be only one inserted
                     var firstInserted = (JToken)msgObj.Inserted.FirstOrDefault();
-                    if (firstInserted != null && firstInserted.SelectToken(INVENTORY_ID)?.ToString() == inventoryId)
+                    if (firstInserted != null && firstInserted.SelectToken(INVENTORY_ID)?.ToString() == inventoryId &&
+                        firstInserted.SelectToken("WarehouseID")?.ToString() == warehouse)
                     {
                         result = true;
                     }
@@ -394,7 +396,19 @@ namespace KChannelAdvisor.Descriptor.MSMQ
             message.First.AddAfterSelf(inserted);
             message.First.AddAfterSelf(deleted);
 
-            SendMessage(syncType, inventoryId, message.ToString());
+            SendMessage(syncType, inventoryId, message.ToString(), "");
+        }
+
+        private void SendUpdateMessage(SyncType syncType, string inventoryId, JToken baseMessage, JToken insertedToken, JToken deletedToken, string warehouse)
+        {
+            var inserted = new JProperty(INSERTED, new JArray(insertedToken));
+            var deleted = new JProperty(DELETED, new JArray(deletedToken));
+
+            var message = baseMessage.DeepClone();
+            message.First.AddAfterSelf(inserted);
+            message.First.AddAfterSelf(deleted);
+
+            SendMessage(syncType, inventoryId, message.ToString(), warehouse);
         }
 
         private void SendInventoryUpdateMessage(SyncType syncType, string inventoryId, JToken baseMessage, JToken insertedToken, JToken deletedToken)
@@ -405,7 +419,15 @@ namespace KChannelAdvisor.Descriptor.MSMQ
             SendUpdateMessage(syncType, inventoryId, baseMessage, insertedToken, deletedToken);
         }
 
-        private void SendMessage(SyncType syncType, string inventoryId, string message)
+        private void SendInventoryUpdateMessage(SyncType syncType, string inventoryId, JToken baseMessage, JToken insertedToken, JToken deletedToken, string warehouseId)
+        {
+            var inventoryID = int.Parse(insertedToken.SelectToken("InventoryID_2").ToString());
+            insertedToken[nameof(KCMSMQInventoryQuantity.Updates)] = JToken.FromObject(KCMapInventoryItem.GetAPIQuantity(inventoryID).Value.Updates);
+
+            SendUpdateMessage(syncType, inventoryId, baseMessage, insertedToken, deletedToken, warehouseId);
+        }
+
+        private void SendMessage(SyncType syncType, string inventoryId, string message, string warehouse)
         {
             LazyInitializer.EnsureInitialized(ref this._msmq, ref this._msmqInitialized, ref this._msmqLock, () =>
                 new MessageQueue(this.Address)
@@ -428,7 +450,7 @@ namespace KChannelAdvisor.Descriptor.MSMQ
                 try
                 {
                     Message msg = _msmq.Peek(TimeSpan.FromSeconds(3), cursor, PeekAction.Current);
-                    if (IsPreviousMessage(syncType, inventoryId, msg))
+                    if (IsPreviousMessage(syncType, inventoryId, msg, warehouse))
                     {
                         previousMessage = msg;
                     }
@@ -438,7 +460,7 @@ namespace KChannelAdvisor.Descriptor.MSMQ
                         while (count > 0)
                         {
                             msg = _msmq.Peek(TimeSpan.FromSeconds(3), cursor, PeekAction.Next);
-                            if (IsPreviousMessage(syncType, inventoryId, msg))
+                            if (IsPreviousMessage(syncType, inventoryId, msg, warehouse))
                             {
                                 previousMessage = msg;
                             }

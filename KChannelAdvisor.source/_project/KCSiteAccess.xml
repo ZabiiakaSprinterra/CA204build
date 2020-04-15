@@ -1,3 +1,0 @@
-<Table TableName="KCSiteAccess">
-	<Column TableName="KCSiteAccess" ColumnName="NoteID" ColumnType="guid" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
-</Table>

@@ -12,6 +12,7 @@ using PX.Data;
 using PX.Objects.IN;
 using PX.Objects.SO;
 using KChannelAdvisor.BLC.Ext;
+using PX.Objects.AR;
 
 namespace KChannelAdvisor.Descriptor.API.Mapper
 {
@@ -21,13 +22,24 @@ namespace KChannelAdvisor.Descriptor.API.Mapper
         {
             KCSiteMasterMaint graph = PXGraph.CreateInstance<KCSiteMasterMaint>();
             var customer = KCGeneralDataHelper.GetCustomerByCAOrder(graph, order);
-
+            var paymentmethod = KCGeneralDataHelper.GetPaymenthMethodId(graph, order);
             var mapper = new KCDynamicOrderMapper(KCMappingEntitiesConstants.Order);
             var conversionGraph = PXGraph.CreateInstance<KCOrderConversionDataMaint>();
             mapper.Mapping.MappingValues = conversionGraph.GetEntity();
             mapper.MapOrder(acumaticaOrder, order);
-
+            if (paymentmethod == null)
+            {
+                KCPaymentMethodsMappingMaint paymentMethodMappingGraph = PXGraph.CreateInstance<KCPaymentMethodsMappingMaint>();
+                CustomerPaymentMethodMaint paymentMethodGraph = PXGraph.CreateInstance<CustomerPaymentMethodMaint>();
+                try
+                {
+                    KCGeneralDataHelper.CreatePaymentMethod(paymentMethodGraph, paymentMethodMappingGraph, customer.BAccountID, order);
+                    paymentmethod = KCGeneralDataHelper.GetPaymenthMethodId(graph, order);
+                }
+                catch { }
+            }
             acumaticaOrder.CustomerID = customer.BAccountID;
+            acumaticaOrder.PMInstanceID = paymentmethod?.PMInstanceID;
             acumaticaOrder.Status = SOOrderStatus.Open;
             acumaticaOrder.CreatePMInstance = true;
             KCSOOrderEntryExt orderext = orderGraph.GetExtension<KCSOOrderEntryExt>();
@@ -36,15 +48,15 @@ namespace KChannelAdvisor.Descriptor.API.Mapper
 
             if (order.EstimatedShipDateUtc == null) acumaticaOrder.RequestDate = acumaticaOrder.OrderDate;
             orderGraph.CurrentDocument.Current = acumaticaOrder;
-            
+
             PXNoteAttribute.SetNote(orderGraph.CurrentDocument.Cache, orderGraph.CurrentDocument.Current, order.PrivateNotes);
             string firstName = orderext.AccountCD.SelectSingle(acumaticaOrder.CustomerID).AcctName;
-            bool isFBAFirstName = firstName.Contains("FBA"); 
+            bool isFBAFirstName = firstName.Contains("FBA");
             KCSOOrderExt orderExt = acumaticaOrder.GetExtension<KCSOOrderExt>();
             orderExt = mapper.MapOrderCaExt(orderExt, order);
             orderExt.UsrKCSyncDate = DateTime.Now;
             orderExt.UsrKCSiteName += FBA ? "/FBA" : "/Non-FBA";
-            if ((FBA && orderExt.UsrKCSiteName.Contains("Amazon"))|| isFBAFirstName )
+            if ((FBA && orderExt.UsrKCSiteName.Contains("Amazon")) || isFBAFirstName)
             {
                 acumaticaOrder.Status = KCCheckoutStatus.CCompleted;
             }
@@ -66,7 +78,6 @@ namespace KChannelAdvisor.Descriptor.API.Mapper
             soLine.TaxCategoryID = "TAXABLE";
             soLine.CuryLineAmt = soLine.CuryUnitPrice * soLine.Qty;
             soLine.ShipComplete = "B";
-
             KCSOLineExt soLineExt = soLine.GetExtension<KCSOLineExt>();
             soLineExt.UsrKCOrderItemID = orderItem.ID;
             soLineExt.UsrKCCAOrderID = orderItem.OrderID;
